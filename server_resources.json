@@ -1,0 +1,21 @@
+{
+  "load_seconds": 2.4678364589999546,
+  "llama_cpp_python": "0.3.36",
+  "platform": "Linux-6.6.159+-x86_64-with-glibc2.39",
+  "processor": "x86_64",
+  "threads": 2,
+  "gpu_layers_requested": -1,
+  "weights_bytes": 2740937888,
+  "quantization": "Q4_K_M",
+  "context": 8192,
+  "hardware": {
+    "cpu": "Intel(R) Xeon(R) CPU @ 2.00GHz",
+    "gpu_names": [
+      "Tesla T4"
+    ],
+    "visible_gpu_selection": "0",
+    "python": "3.11.17",
+    "platform": "Linux-6.6.159+-x86_64-with-glibc2.39"
+  },
+  "gpu_offload_supported": true
+}

@@ -1,0 +1,24 @@
+{
+  "model_repo": "Qwen/Qwen3.5-4B",
+  "model_revision": "851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a",
+  "official_runtime_path": "runtime.json",
+  "official_runtime_sha256": "c9dd5ba626317c1a4160daab614b118f2a0d6b60a1b37294c6228093d16b078f",
+  "request_body": {
+    "max_tokens": 768,
+    "temperature": 0.2,
+    "top_p": 0.95,
+    "top_k": 20,
+    "min_p": 0.0,
+    "seed": 42,
+    "chat_template_kwargs": {
+      "enable_thinking": false
+    },
+    "response_format": {
+      "type": "json_object"
+    }
+  },
+  "timeout_seconds": 600,
+  "completion_budget_includes_reasoning": true,
+  "served_model": "Qwen/Qwen3.5-4B",
+  "origin": "self-defined runtime, as clarified by instructor; no provided runtime exists"
+}

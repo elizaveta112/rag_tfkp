@@ -1,0 +1,1351 @@
+{
+  "pages": 147,
+  "blocks": 858,
+  "page_audit": [
+    {
+      "page": 1,
+      "fractions": 0,
+      "overbars": 0,
+      "radicals": 0,
+      "unresolved_radicals": 0,
+      "unknown_glyphs": {},
+      "unresolved_fraction_rules": 0
+    },
+    {
+      "page": 2,
+      "fractions": 2,
+      "overbars": 0,
+      "radicals": 0,
+      "unresolved_radicals": 0,
+      "unknown_glyphs": {},
+      "unresolved_fraction_rules": 0
+    },
+    {
+      "page": 3,
+      "fractions": 7,
+      "overbars": 4,
+      "radicals": 11,
+      "unresolved_radicals": 0,
+      "unknown_glyphs": {},
+      "unresolved_fraction_rules": 0
+    },
+    {
+      "page": 4,
+      "fractions": 6,
+      "overbars": 27,
+      "radicals": 1,
+      "unresolved_radicals": 0,
+      "unknown_glyphs": {},
+      "unresolved_fraction_rules": 1
+    },
+    {
+      "page": 5,
+      "fractions": 0,
+      "overbars": 3,
+      "radicals": 0,
+      "unresolved_radicals": 0,
+      "unknown_glyphs": {},
+      "unresolved_fraction_rules": 0
+    },
+    {
+      "page": 6,
+      "fractions": 6,
+      "overbars": 0,
+      "radicals": 0,
+      "unresolved_radicals": 0,
+      "unknown_glyphs": {
+        "CMEX10:U+006E": 1,
+        "CMEX10:U+006F": 1
+      },
+      "unresolved_fraction_rules": 0
+    },
+    {
+      "page": 7,
+      "fractions": 6,
+      "overbars": 2,
+      "radicals": 2,
+      "unresolved_radicals": 0,
+      "unknown_glyphs": {},
+      "unresolved_fraction_rules": 0
+    },
+    {
+      "page": 8,
+      "fractions": 7,
+      "overbars": 5,
+      "radicals": 0,
+      "unresolved_radicals": 0,
+      "unknown_glyphs": {},
+      "unresolved_fraction_rules": 0
+    },
+    {
+      "page": 9,
+      "fractions": 0,
+      "overbars": 3,
+      "radicals": 0,
+      "unresolved_radicals": 0,
+      "unknown_glyphs": {},
+      "unresolved_fraction_rules": 0
+    },
+    {
+      "page": 10,
+      "fractions": 1,
+      "overbars": 2,
+      "radicals": 0,
+      "unresolved_radicals": 0,
+      "unknown_glyphs": {},
+      "unresolved_fraction_rules": 0
+    },
+    {
+      "page": 11,
+      "fractions": 8,
+      "overbars": 0,
+      "radicals": 0,
+      "unresolved_radicals": 0,
+      "unknown_glyphs": {},
+      "unresolved_fraction_rules": 0
+    },
+    {
+      "page": 12,
+      "fractions": 35,
+      "overbars": 16,
+      "radicals": 0,
+      "unresolved_radicals": 0,
+      "unknown_glyphs": {},
+      "unresolved_fraction_rules": 0
+    },
+    {
+      "page": 13,
+      "fractions": 12,
+      "overbars": 1,
+      "radicals": 0,
+      "unresolved_radicals": 0,
+      "unknown_glyphs": {},
+      "unresolved_fraction_rules": 0
+    },
+    {
+      "page": 14,
+      "fractions": 0,
+      "overbars": 1,
+      "radicals": 0,
+      "unresolved_radicals": 0,
+      "unknown_glyphs": {},
+      "unresolved_fraction_rules": 0
+    },
+    {
+      "page": 15,
+      "fractions": 1,
+      "overbars": 4,
+      "radicals": 0,
+      "unresolved_radicals": 0,
+      "unknown_glyphs": {},
+      "unresolved_fraction_rules": 0
+    },
+    {
+      "page": 16,
+      "fractions": 5,
+      "overbars": 0,
+      "radicals": 0,
+      "unresolved_radicals": 0,
+      "unknown_glyphs": {},
+      "unresolved_fraction_rules": 0
+    },
+    {
+      "page": 17,
+      "fractions": 2,
+      "overbars": 1,
+      "radicals": 1,
+      "unresolved_radicals": 0,
+      "unknown_glyphs": {},
+      "unresolved_fraction_rules": 0
+    },
+    {
+      "page": 18,
+      "fractions": 6,
+      "overbars": 4,
+      "radicals": 6,
+      "unresolved_radicals": 0,
+      "unknown_glyphs": {},
+      "unresolved_fraction_rules": 0
+    },
+    {
+      "page": 19,
+      "fractions": 11,
+      "overbars": 0,
+      "radicals": 0,
+      "unresolved_radicals": 0,
+      "unknown_glyphs": {},
+      "unresolved_fraction_rules": 0
+    },
+    {
+      "page": 20,
+      "fractions": 5,
+      "overbars": 3,
+      "radicals": 1,
+      "unresolved_radicals": 0,
+      "unknown_glyphs": {},
+      "unresolved_fraction_rules": 0
+    },
+    {
+      "page": 21,
+      "fractions": 9,
+      "overbars": 0,
+      "radicals": 0,
+      "unresolved_radicals": 0,
+      "unknown_glyphs": {},
+      "unresolved_fraction_rules": 0
+    },
+    {
+      "page": 22,
+      "fractions": 6,
+      "overbars": 0,
+      "radicals": 0,
+      "unresolved_radicals": 0,
+      "unknown_glyphs": {},
+      "unresolved_fraction_rules": 0
+    },
+    {
+      "page": 23,
+      "fractions": 1,
+      "overbars": 0,
+      "radicals": 1,
+      "unresolved_radicals": 0,
+      "unknown_glyphs": {},
+      "unresolved_fraction_rules": 0
+    },
+    {
+      "page": 24,
+      "fractions": 0,
+      "overbars": 0,
+      "radicals": 0,
+      "unresolved_radicals": 0,
+      "unknown_glyphs": {},
+      "unresolved_fraction_rules": 0
+    },
+    {
+      "page": 25,
+      "fractions": 0,
+      "overbars": 0,
+      "radicals": 0,
+      "unresolved_radicals": 0,
+      "unknown_glyphs": {},
+      "unresolved_fraction_rules": 0
+    },
+    {
+      "page": 26,
+      "fractions": 0,
+      "overbars": 0,
+      "radicals": 0,
+      "unresolved_radicals": 0,
+      "unknown_glyphs": {},
+      "unresolved_fraction_rules": 0
+    },
+    {
+      "page": 27,
+      "fractions": 5,
+      "overbars": 0,
+      "radicals": 0,
+      "unresolved_radicals": 0,
+      "unknown_glyphs": {},
+      "unresolved_fraction_rules": 0
+    },
+    {
+      "page": 28,
+      "fractions": 1,
+      "overbars": 0,
+      "radicals": 0,
+      "unresolved_radicals": 0,
+      "unknown_glyphs": {},
+      "unresolved_fraction_rules": 0
+    },
+    {
+      "page": 29,
+      "fractions": 8,
+      "overbars": 0,
+      "radicals": 0,
+      "unresolved_radicals": 0,
+      "unknown_glyphs": {},
+      "unresolved_fraction_rules": 0
+    },
+    {
+      "page": 30,
+      "fractions": 0,
+      "overbars": 0,
+      "radicals": 0,
+      "unresolved_radicals": 0,
+      "unknown_glyphs": {},
+      "unresolved_fraction_rules": 0
+    },
+    {
+      "page": 31,
+      "fractions": 3,
+      "overbars": 0,
+      "radicals": 0,
+      "unresolved_radicals": 0,
+      "unknown_glyphs": {},
+      "unresolved_fraction_rules": 0
+    },
+    {
+      "page": 32,
+      "fractions": 19,
+      "overbars": 0,
+      "radicals": 0,
+      "unresolved_radicals": 0,
+      "unknown_glyphs": {},
+      "unresolved_fraction_rules": 1
+    },
+    {
+      "page": 33,
+      "fractions": 13,
+      "overbars": 0,
+      "radicals": 0,
+      "unresolved_radicals": 0,
+      "unknown_glyphs": {},
+      "unresolved_fraction_rules": 0
+    },
+    {
+      "page": 34,
+      "fractions": 9,
+      "overbars": 0,
+      "radicals": 0,
+      "unresolved_radicals": 0,
+      "unknown_glyphs": {},
+      "unresolved_fraction_rules": 0
+    },
+    {
+      "page": 35,
+      "fractions": 3,
+      "overbars": 1,
+      "radicals": 0,
+      "unresolved_radicals": 0,
+      "unknown_glyphs": {},
+      "unresolved_fraction_rules": 0
+    },
+    {
+      "page": 36,
+      "fractions": 14,
+      "overbars": 1,
+      "radicals": 0,
+      "unresolved_radicals": 0,
+      "unknown_glyphs": {},
+      "unresolved_fraction_rules": 0
+    },
+    {
+      "page": 37,
+      "fractions": 5,
+      "overbars": 0,
+      "radicals": 0,
+      "unresolved_radicals": 0,
+      "unknown_glyphs": {},
+      "unresolved_fraction_rules": 0
+    },
+    {
+      "page": 38,
+      "fractions": 0,
+      "overbars": 0,
+      "radicals": 0,
+      "unresolved_radicals": 0,
+      "unknown_glyphs": {},
+      "unresolved_fraction_rules": 0
+    },
+    {
+      "page": 39,
+      "fractions": 6,
+      "overbars": 0,
+      "radicals": 0,
+      "unresolved_radicals": 0,
+      "unknown_glyphs": {},
+      "unresolved_fraction_rules": 0
+    },
+    {
+      "page": 40,
+      "fractions": 9,
+      "overbars": 0,
+      "radicals": 0,
+      "unresolved_radicals": 0,
+      "unknown_glyphs": {},
+      "unresolved_fraction_rules": 0
+    },
+    {
+      "page": 41,
+      "fractions": 7,
+      "overbars": 0,
+      "radicals": 0,
+      "unresolved_radicals": 0,
+      "unknown_glyphs": {},
+      "unresolved_fraction_rules": 0
+    },
+    {
+      "page": 42,
+      "fractions": 6,
+      "overbars": 2,
+      "radicals": 0,
+      "unresolved_radicals": 0,
+      "unknown_glyphs": {},
+      "unresolved_fraction_rules": 0
+    },
+    {
+      "page": 43,
+      "fractions": 1,
+      "overbars": 1,
+      "radicals": 0,
+      "unresolved_radicals": 0,
+      "unknown_glyphs": {},
+      "unresolved_fraction_rules": 0
+    },
+    {
+      "page": 44,
+      "fractions": 4,
+      "overbars": 0,
+      "radicals": 0,
+      "unresolved_radicals": 0,
+      "unknown_glyphs": {},
+      "unresolved_fraction_rules": 0
+    },
+    {
+      "page": 45,
+      "fractions": 9,
+      "overbars": 1,
+      "radicals": 0,
+      "unresolved_radicals": 0,
+      "unknown_glyphs": {},
+      "unresolved_fraction_rules": 0
+    },
+    {
+      "page": 46,
+      "fractions": 4,
+      "overbars": 2,
+      "radicals": 0,
+      "unresolved_radicals": 0,
+      "unknown_glyphs": {},
+      "unresolved_fraction_rules": 0
+    },
+    {
+      "page": 47,
+      "fractions": 5,
+      "overbars": 1,
+      "radicals": 1,
+      "unresolved_radicals": 0,
+      "unknown_glyphs": {},
+      "unresolved_fraction_rules": 0
+    },
+    {
+      "page": 48,
+      "fractions": 19,
+      "overbars": 0,
+      "radicals": 0,
+      "unresolved_radicals": 0,
+      "unknown_glyphs": {},
+      "unresolved_fraction_rules": 0
+    },
+    {
+      "page": 49,
+      "fractions": 4,
+      "overbars": 0,
+      "radicals": 0,
+      "unresolved_radicals": 0,
+      "unknown_glyphs": {},
+      "unresolved_fraction_rules": 0
+    },
+    {
+      "page": 50,
+      "fractions": 6,
+      "overbars": 0,
+      "radicals": 0,
+      "unresolved_radicals": 0,
+      "unknown_glyphs": {},
+      "unresolved_fraction_rules": 0
+    },
+    {
+      "page": 51,
+      "fractions": 0,
+      "overbars": 0,
+      "radicals": 0,
+      "unresolved_radicals": 0,
+      "unknown_glyphs": {},
+      "unresolved_fraction_rules": 0
+    },
+    {
+      "page": 52,
+      "fractions": 4,
+      "overbars": 1,
+      "radicals": 0,
+      "unresolved_radicals": 0,
+      "unknown_glyphs": {},
+      "unresolved_fraction_rules": 0
+    },
+    {
+      "page": 53,
+      "fractions": 1,
+      "overbars": 0,
+      "radicals": 0,
+      "unresolved_radicals": 0,
+      "unknown_glyphs": {},
+      "unresolved_fraction_rules": 0
+    },
+    {
+      "page": 54,
+      "fractions": 8,
+      "overbars": 1,
+      "radicals": 0,
+      "unresolved_radicals": 0,
+      "unknown_glyphs": {},
+      "unresolved_fraction_rules": 0
+    },
+    {
+      "page": 55,
+      "fractions": 3,
+      "overbars": 3,
+      "radicals": 0,
+      "unresolved_radicals": 0,
+      "unknown_glyphs": {},
+      "unresolved_fraction_rules": 0
+    },
+    {
+      "page": 56,
+      "fractions": 4,
+      "overbars": 3,
+      "radicals": 0,
+      "unresolved_radicals": 0,
+      "unknown_glyphs": {},
+      "unresolved_fraction_rules": 0
+    },
+    {
+      "page": 57,
+      "fractions": 18,
+      "overbars": 0,
+      "radicals": 0,
+      "unresolved_radicals": 0,
+      "unknown_glyphs": {},
+      "unresolved_fraction_rules": 0
+    },
+    {
+      "page": 58,
+      "fractions": 17,
+      "overbars": 0,
+      "radicals": 0,
+      "unresolved_radicals": 0,
+      "unknown_glyphs": {},
+      "unresolved_fraction_rules": 0
+    },
+    {
+      "page": 59,
+      "fractions": 4,
+      "overbars": 0,
+      "radicals": 0,
+      "unresolved_radicals": 0,
+      "unknown_glyphs": {},
+      "unresolved_fraction_rules": 0
+    },
+    {
+      "page": 60,
+      "fractions": 1,
+      "overbars": 0,
+      "radicals": 0,
+      "unresolved_radicals": 0,
+      "unknown_glyphs": {},
+      "unresolved_fraction_rules": 0
+    },
+    {
+      "page": 61,
+      "fractions": 7,
+      "overbars": 1,
+      "radicals": 0,
+      "unresolved_radicals": 0,
+      "unknown_glyphs": {},
+      "unresolved_fraction_rules": 0
+    },
+    {
+      "page": 62,
+      "fractions": 10,
+      "overbars": 0,
+      "radicals": 2,
+      "unresolved_radicals": 0,
+      "unknown_glyphs": {},
+      "unresolved_fraction_rules": 0
+    },
+    {
+      "page": 63,
+      "fractions": 11,
+      "overbars": 0,
+      "radicals": 0,
+      "unresolved_radicals": 0,
+      "unknown_glyphs": {
+        "CMEX10:U+006E": 1,
+        "CMEX10:U+006F": 1
+      },
+      "unresolved_fraction_rules": 0
+    },
+    {
+      "page": 64,
+      "fractions": 2,
+      "overbars": 0,
+      "radicals": 1,
+      "unresolved_radicals": 0,
+      "unknown_glyphs": {},
+      "unresolved_fraction_rules": 0
+    },
+    {
+      "page": 65,
+      "fractions": 4,
+      "overbars": 0,
+      "radicals": 0,
+      "unresolved_radicals": 0,
+      "unknown_glyphs": {},
+      "unresolved_fraction_rules": 0
+    },
+    {
+      "page": 66,
+      "fractions": 8,
+      "overbars": 0,
+      "radicals": 2,
+      "unresolved_radicals": 0,
+      "unknown_glyphs": {},
+      "unresolved_fraction_rules": 0
+    },
+    {
+      "page": 67,
+      "fractions": 14,
+      "overbars": 0,
+      "radicals": 0,
+      "unresolved_radicals": 0,
+      "unknown_glyphs": {},
+      "unresolved_fraction_rules": 0
+    },
+    {
+      "page": 68,
+      "fractions": 8,
+      "overbars": 0,
+      "radicals": 5,
+      "unresolved_radicals": 0,
+      "unknown_glyphs": {},
+      "unresolved_fraction_rules": 0
+    },
+    {
+      "page": 69,
+      "fractions": 6,
+      "overbars": 0,
+      "radicals": 1,
+      "unresolved_radicals": 0,
+      "unknown_glyphs": {},
+      "unresolved_fraction_rules": 0
+    },
+    {
+      "page": 70,
+      "fractions": 19,
+      "overbars": 0,
+      "radicals": 2,
+      "unresolved_radicals": 0,
+      "unknown_glyphs": {},
+      "unresolved_fraction_rules": 0
+    },
+    {
+      "page": 71,
+      "fractions": 6,
+      "overbars": 0,
+      "radicals": 4,
+      "unresolved_radicals": 0,
+      "unknown_glyphs": {},
+      "unresolved_fraction_rules": 0
+    },
+    {
+      "page": 72,
+      "fractions": 17,
+      "overbars": 0,
+      "radicals": 4,
+      "unresolved_radicals": 0,
+      "unknown_glyphs": {},
+      "unresolved_fraction_rules": 0
+    },
+    {
+      "page": 73,
+      "fractions": 15,
+      "overbars": 1,
+      "radicals": 1,
+      "unresolved_radicals": 0,
+      "unknown_glyphs": {},
+      "unresolved_fraction_rules": 0
+    },
+    {
+      "page": 74,
+      "fractions": 8,
+      "overbars": 6,
+      "radicals": 0,
+      "unresolved_radicals": 0,
+      "unknown_glyphs": {},
+      "unresolved_fraction_rules": 0
+    },
+    {
+      "page": 75,
+      "fractions": 4,
+      "overbars": 1,
+      "radicals": 0,
+      "unresolved_radicals": 0,
+      "unknown_glyphs": {},
+      "unresolved_fraction_rules": 0
+    },
+    {
+      "page": 76,
+      "fractions": 0,
+      "overbars": 0,
+      "radicals": 0,
+      "unresolved_radicals": 0,
+      "unknown_glyphs": {},
+      "unresolved_fraction_rules": 0
+    },
+    {
+      "page": 77,
+      "fractions": 3,
+      "overbars": 0,
+      "radicals": 0,
+      "unresolved_radicals": 0,
+      "unknown_glyphs": {},
+      "unresolved_fraction_rules": 0
+    },
+    {
+      "page": 78,
+      "fractions": 14,
+      "overbars": 1,
+      "radicals": 0,
+      "unresolved_radicals": 0,
+      "unknown_glyphs": {},
+      "unresolved_fraction_rules": 0
+    },
+    {
+      "page": 79,
+      "fractions": 14,
+      "overbars": 4,
+      "radicals": 0,
+      "unresolved_radicals": 0,
+      "unknown_glyphs": {},
+      "unresolved_fraction_rules": 0
+    },
+    {
+      "page": 80,
+      "fractions": 3,
+      "overbars": 0,
+      "radicals": 0,
+      "unresolved_radicals": 0,
+      "unknown_glyphs": {},
+      "unresolved_fraction_rules": 0
+    },
+    {
+      "page": 81,
+      "fractions": 7,
+      "overbars": 3,
+      "radicals": 0,
+      "unresolved_radicals": 0,
+      "unknown_glyphs": {},
+      "unresolved_fraction_rules": 0
+    },
+    {
+      "page": 82,
+      "fractions": 0,
+      "overbars": 1,
+      "radicals": 0,
+      "unresolved_radicals": 0,
+      "unknown_glyphs": {},
+      "unresolved_fraction_rules": 0
+    },
+    {
+      "page": 83,
+      "fractions": 0,
+      "overbars": 0,
+      "radicals": 0,
+      "unresolved_radicals": 0,
+      "unknown_glyphs": {},
+      "unresolved_fraction_rules": 0
+    },
+    {
+      "page": 84,
+      "fractions": 4,
+      "overbars": 1,
+      "radicals": 2,
+      "unresolved_radicals": 0,
+      "unknown_glyphs": {},
+      "unresolved_fraction_rules": 0
+    },
+    {
+      "page": 85,
+      "fractions": 5,
+      "overbars": 0,
+      "radicals": 0,
+      "unresolved_radicals": 0,
+      "unknown_glyphs": {},
+      "unresolved_fraction_rules": 0
+    },
+    {
+      "page": 86,
+      "fractions": 3,
+      "overbars": 1,
+      "radicals": 0,
+      "unresolved_radicals": 0,
+      "unknown_glyphs": {},
+      "unresolved_fraction_rules": 0
+    },
+    {
+      "page": 87,
+      "fractions": 8,
+      "overbars": 4,
+      "radicals": 0,
+      "unresolved_radicals": 0,
+      "unknown_glyphs": {},
+      "unresolved_fraction_rules": 0
+    },
+    {
+      "page": 88,
+      "fractions": 5,
+      "overbars": 2,
+      "radicals": 0,
+      "unresolved_radicals": 0,
+      "unknown_glyphs": {},
+      "unresolved_fraction_rules": 0
+    },
+    {
+      "page": 89,
+      "fractions": 6,
+      "overbars": 41,
+      "radicals": 0,
+      "unresolved_radicals": 0,
+      "unknown_glyphs": {},
+      "unresolved_fraction_rules": 0
+    },
+    {
+      "page": 90,
+      "fractions": 3,
+      "overbars": 11,
+      "radicals": 0,
+      "unresolved_radicals": 0,
+      "unknown_glyphs": {},
+      "unresolved_fraction_rules": 0
+    },
+    {
+      "page": 91,
+      "fractions": 13,
+      "overbars": 26,
+      "radicals": 0,
+      "unresolved_radicals": 0,
+      "unknown_glyphs": {},
+      "unresolved_fraction_rules": 0
+    },
+    {
+      "page": 92,
+      "fractions": 3,
+      "overbars": 0,
+      "radicals": 0,
+      "unresolved_radicals": 0,
+      "unknown_glyphs": {},
+      "unresolved_fraction_rules": 0
+    },
+    {
+      "page": 93,
+      "fractions": 10,
+      "overbars": 2,
+      "radicals": 0,
+      "unresolved_radicals": 0,
+      "unknown_glyphs": {},
+      "unresolved_fraction_rules": 0
+    },
+    {
+      "page": 94,
+      "fractions": 12,
+      "overbars": 1,
+      "radicals": 0,
+      "unresolved_radicals": 0,
+      "unknown_glyphs": {},
+      "unresolved_fraction_rules": 0
+    },
+    {
+      "page": 95,
+      "fractions": 6,
+      "overbars": 9,
+      "radicals": 0,
+      "unresolved_radicals": 0,
+      "unknown_glyphs": {},
+      "unresolved_fraction_rules": 0
+    },
+    {
+      "page": 96,
+      "fractions": 5,
+      "overbars": 3,
+      "radicals": 0,
+      "unresolved_radicals": 0,
+      "unknown_glyphs": {},
+      "unresolved_fraction_rules": 0
+    },
+    {
+      "page": 97,
+      "fractions": 5,
+      "overbars": 1,
+      "radicals": 1,
+      "unresolved_radicals": 0,
+      "unknown_glyphs": {},
+      "unresolved_fraction_rules": 0
+    },
+    {
+      "page": 98,
+      "fractions": 10,
+      "overbars": 1,
+      "radicals": 1,
+      "unresolved_radicals": 0,
+      "unknown_glyphs": {},
+      "unresolved_fraction_rules": 1
+    },
+    {
+      "page": 99,
+      "fractions": 1,
+      "overbars": 0,
+      "radicals": 0,
+      "unresolved_radicals": 0,
+      "unknown_glyphs": {},
+      "unresolved_fraction_rules": 0
+    },
+    {
+      "page": 100,
+      "fractions": 0,
+      "overbars": 0,
+      "radicals": 0,
+      "unresolved_radicals": 0,
+      "unknown_glyphs": {
+        "CMEX10:U+0021": 1
+      },
+      "unresolved_fraction_rules": 0
+    },
+    {
+      "page": 101,
+      "fractions": 0,
+      "overbars": 0,
+      "radicals": 1,
+      "unresolved_radicals": 0,
+      "unknown_glyphs": {},
+      "unresolved_fraction_rules": 0
+    },
+    {
+      "page": 102,
+      "fractions": 0,
+      "overbars": 0,
+      "radicals": 0,
+      "unresolved_radicals": 0,
+      "unknown_glyphs": {},
+      "unresolved_fraction_rules": 0
+    },
+    {
+      "page": 103,
+      "fractions": 0,
+      "overbars": 0,
+      "radicals": 0,
+      "unresolved_radicals": 0,
+      "unknown_glyphs": {},
+      "unresolved_fraction_rules": 0
+    },
+    {
+      "page": 104,
+      "fractions": 0,
+      "overbars": 0,
+      "radicals": 0,
+      "unresolved_radicals": 0,
+      "unknown_glyphs": {},
+      "unresolved_fraction_rules": 0
+    },
+    {
+      "page": 105,
+      "fractions": 0,
+      "overbars": 2,
+      "radicals": 0,
+      "unresolved_radicals": 0,
+      "unknown_glyphs": {},
+      "unresolved_fraction_rules": 0
+    },
+    {
+      "page": 106,
+      "fractions": 3,
+      "overbars": 16,
+      "radicals": 0,
+      "unresolved_radicals": 0,
+      "unknown_glyphs": {},
+      "unresolved_fraction_rules": 0
+    },
+    {
+      "page": 107,
+      "fractions": 5,
+      "overbars": 3,
+      "radicals": 0,
+      "unresolved_radicals": 0,
+      "unknown_glyphs": {},
+      "unresolved_fraction_rules": 0
+    },
+    {
+      "page": 108,
+      "fractions": 5,
+      "overbars": 0,
+      "radicals": 0,
+      "unresolved_radicals": 0,
+      "unknown_glyphs": {},
+      "unresolved_fraction_rules": 0
+    },
+    {
+      "page": 109,
+      "fractions": 10,
+      "overbars": 0,
+      "radicals": 0,
+      "unresolved_radicals": 0,
+      "unknown_glyphs": {},
+      "unresolved_fraction_rules": 0
+    },
+    {
+      "page": 110,
+      "fractions": 24,
+      "overbars": 0,
+      "radicals": 0,
+      "unresolved_radicals": 0,
+      "unknown_glyphs": {},
+      "unresolved_fraction_rules": 0
+    },
+    {
+      "page": 111,
+      "fractions": 3,
+      "overbars": 0,
+      "radicals": 0,
+      "unresolved_radicals": 0,
+      "unknown_glyphs": {},
+      "unresolved_fraction_rules": 0
+    },
+    {
+      "page": 112,
+      "fractions": 5,
+      "overbars": 0,
+      "radicals": 0,
+      "unresolved_radicals": 0,
+      "unknown_glyphs": {},
+      "unresolved_fraction_rules": 0
+    },
+    {
+      "page": 113,
+      "fractions": 19,
+      "overbars": 0,
+      "radicals": 0,
+      "unresolved_radicals": 0,
+      "unknown_glyphs": {},
+      "unresolved_fraction_rules": 0
+    },
+    {
+      "page": 114,
+      "fractions": 13,
+      "overbars": 0,
+      "radicals": 0,
+      "unresolved_radicals": 0,
+      "unknown_glyphs": {},
+      "unresolved_fraction_rules": 0
+    },
+    {
+      "page": 115,
+      "fractions": 9,
+      "overbars": 0,
+      "radicals": 0,
+      "unresolved_radicals": 0,
+      "unknown_glyphs": {},
+      "unresolved_fraction_rules": 0
+    },
+    {
+      "page": 116,
+      "fractions": 4,
+      "overbars": 0,
+      "radicals": 0,
+      "unresolved_radicals": 0,
+      "unknown_glyphs": {},
+      "unresolved_fraction_rules": 0
+    },
+    {
+      "page": 117,
+      "fractions": 8,
+      "overbars": 0,
+      "radicals": 3,
+      "unresolved_radicals": 0,
+      "unknown_glyphs": {},
+      "unresolved_fraction_rules": 0
+    },
+    {
+      "page": 118,
+      "fractions": 4,
+      "overbars": 0,
+      "radicals": 2,
+      "unresolved_radicals": 0,
+      "unknown_glyphs": {},
+      "unresolved_fraction_rules": 0
+    },
+    {
+      "page": 119,
+      "fractions": 4,
+      "overbars": 0,
+      "radicals": 0,
+      "unresolved_radicals": 0,
+      "unknown_glyphs": {},
+      "unresolved_fraction_rules": 0
+    },
+    {
+      "page": 120,
+      "fractions": 3,
+      "overbars": 1,
+      "radicals": 0,
+      "unresolved_radicals": 0,
+      "unknown_glyphs": {},
+      "unresolved_fraction_rules": 0
+    },
+    {
+      "page": 121,
+      "fractions": 1,
+      "overbars": 1,
+      "radicals": 0,
+      "unresolved_radicals": 0,
+      "unknown_glyphs": {},
+      "unresolved_fraction_rules": 0
+    },
+    {
+      "page": 122,
+      "fractions": 12,
+      "overbars": 2,
+      "radicals": 0,
+      "unresolved_radicals": 0,
+      "unknown_glyphs": {},
+      "unresolved_fraction_rules": 0
+    },
+    {
+      "page": 123,
+      "fractions": 10,
+      "overbars": 6,
+      "radicals": 0,
+      "unresolved_radicals": 0,
+      "unknown_glyphs": {},
+      "unresolved_fraction_rules": 0
+    },
+    {
+      "page": 124,
+      "fractions": 14,
+      "overbars": 0,
+      "radicals": 0,
+      "unresolved_radicals": 0,
+      "unknown_glyphs": {},
+      "unresolved_fraction_rules": 0
+    },
+    {
+      "page": 125,
+      "fractions": 2,
+      "overbars": 0,
+      "radicals": 0,
+      "unresolved_radicals": 0,
+      "unknown_glyphs": {},
+      "unresolved_fraction_rules": 0
+    },
+    {
+      "page": 126,
+      "fractions": 3,
+      "overbars": 2,
+      "radicals": 0,
+      "unresolved_radicals": 0,
+      "unknown_glyphs": {},
+      "unresolved_fraction_rules": 0
+    },
+    {
+      "page": 127,
+      "fractions": 9,
+      "overbars": 0,
+      "radicals": 0,
+      "unresolved_radicals": 0,
+      "unknown_glyphs": {},
+      "unresolved_fraction_rules": 0
+    },
+    {
+      "page": 128,
+      "fractions": 4,
+      "overbars": 0,
+      "radicals": 0,
+      "unresolved_radicals": 0,
+      "unknown_glyphs": {},
+      "unresolved_fraction_rules": 0
+    },
+    {
+      "page": 129,
+      "fractions": 1,
+      "overbars": 0,
+      "radicals": 0,
+      "unresolved_radicals": 0,
+      "unknown_glyphs": {},
+      "unresolved_fraction_rules": 0
+    },
+    {
+      "page": 130,
+      "fractions": 3,
+      "overbars": 0,
+      "radicals": 3,
+      "unresolved_radicals": 0,
+      "unknown_glyphs": {},
+      "unresolved_fraction_rules": 0
+    },
+    {
+      "page": 131,
+      "fractions": 3,
+      "overbars": 0,
+      "radicals": 1,
+      "unresolved_radicals": 0,
+      "unknown_glyphs": {},
+      "unresolved_fraction_rules": 0
+    },
+    {
+      "page": 132,
+      "fractions": 13,
+      "overbars": 0,
+      "radicals": 9,
+      "unresolved_radicals": 0,
+      "unknown_glyphs": {
+        "CMEX10:U+0021": 1
+      },
+      "unresolved_fraction_rules": 0
+    },
+    {
+      "page": 133,
+      "fractions": 2,
+      "overbars": 0,
+      "radicals": 0,
+      "unresolved_radicals": 0,
+      "unknown_glyphs": {},
+      "unresolved_fraction_rules": 0
+    },
+    {
+      "page": 134,
+      "fractions": 10,
+      "overbars": 0,
+      "radicals": 2,
+      "unresolved_radicals": 0,
+      "unknown_glyphs": {},
+      "unresolved_fraction_rules": 0
+    },
+    {
+      "page": 135,
+      "fractions": 11,
+      "overbars": 0,
+      "radicals": 0,
+      "unresolved_radicals": 0,
+      "unknown_glyphs": {
+        "CMEX10:U+006E": 1,
+        "CMEX10:U+006F": 1
+      },
+      "unresolved_fraction_rules": 0
+    },
+    {
+      "page": 136,
+      "fractions": 15,
+      "overbars": 1,
+      "radicals": 5,
+      "unresolved_radicals": 0,
+      "unknown_glyphs": {},
+      "unresolved_fraction_rules": 0
+    },
+    {
+      "page": 137,
+      "fractions": 12,
+      "overbars": 3,
+      "radicals": 3,
+      "unresolved_radicals": 0,
+      "unknown_glyphs": {},
+      "unresolved_fraction_rules": 0
+    },
+    {
+      "page": 138,
+      "fractions": 5,
+      "overbars": 0,
+      "radicals": 1,
+      "unresolved_radicals": 0,
+      "unknown_glyphs": {},
+      "unresolved_fraction_rules": 0
+    },
+    {
+      "page": 139,
+      "fractions": 3,
+      "overbars": 2,
+      "radicals": 1,
+      "unresolved_radicals": 0,
+      "unknown_glyphs": {},
+      "unresolved_fraction_rules": 0
+    },
+    {
+      "page": 140,
+      "fractions": 10,
+      "overbars": 0,
+      "radicals": 2,
+      "unresolved_radicals": 0,
+      "unknown_glyphs": {},
+      "unresolved_fraction_rules": 0
+    },
+    {
+      "page": 141,
+      "fractions": 2,
+      "overbars": 0,
+      "radicals": 0,
+      "unresolved_radicals": 0,
+      "unknown_glyphs": {},
+      "unresolved_fraction_rules": 0
+    },
+    {
+      "page": 142,
+      "fractions": 8,
+      "overbars": 0,
+      "radicals": 0,
+      "unresolved_radicals": 0,
+      "unknown_glyphs": {
+        "CMEX10:U+006E": 2,
+        "CMEX10:U+006F": 2
+      },
+      "unresolved_fraction_rules": 0
+    },
+    {
+      "page": 143,
+      "fractions": 14,
+      "overbars": 0,
+      "radicals": 0,
+      "unresolved_radicals": 0,
+      "unknown_glyphs": {},
+      "unresolved_fraction_rules": 0
+    },
+    {
+      "page": 144,
+      "fractions": 5,
+      "overbars": 1,
+      "radicals": 1,
+      "unresolved_radicals": 0,
+      "unknown_glyphs": {
+        "CMEX10:U+0021": 1
+      },
+      "unresolved_fraction_rules": 0
+    },
+    {
+      "page": 145,
+      "fractions": 18,
+      "overbars": 0,
+      "radicals": 2,
+      "unresolved_radicals": 0,
+      "unknown_glyphs": {},
+      "unresolved_fraction_rules": 0
+    },
+    {
+      "page": 146,
+      "fractions": 8,
+      "overbars": 0,
+      "radicals": 0,
+      "unresolved_radicals": 0,
+      "unknown_glyphs": {},
+      "unresolved_fraction_rules": 0
+    },
+    {
+      "page": 147,
+      "fractions": 0,
+      "overbars": 0,
+      "radicals": 0,
+      "unresolved_radicals": 0,
+      "unknown_glyphs": {},
+      "unresolved_fraction_rules": 0
+    }
+  ],
+  "method": "Type3 cp1251 recovery + joint script rows + vector fractions/overbars/radicals",
+  "limitations": "Geometric heuristics, not exact TeX recovery; complex radicals/matrices may need review.",
+  "source_url": "https://new.mipt.ru/upload/mathematics/study/uchebniki/%D0%9B_%D0%A2%D0%A4%D0%9A%D0%9F_%D0%93%D0%BE%D1%80%D1%8F%D0%B9%D0%BD%D0%BE%D0%B2_%D0%9F%D0%BE%D0%BB%D0%BE%D0%B2%D0%B8%D0%BD%D0%BA%D0%B8%D0%BD_2025.pdf",
+  "pdf_sha256": "629f4b668ff43abf2a6e621aefd0f50e165ce8e88c52c05769149e1267d033ec"
+}

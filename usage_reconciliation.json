@@ -1,0 +1,16 @@
+{
+  "verified": true,
+  "llm_calls": 101,
+  "input_tokens": 226155,
+  "output_tokens": 36001,
+  "questions": 15,
+  "modes": 5,
+  "trace_sha256": {
+    "no_context": "142802d0e206d1f518ce9f2dc479ea714671a5b08b354dccb37da1ca738da303",
+    "single_rag": "9a8fb9ce2a87ce44c0ded226417afdb00ef104da819ca05a77df129bea6055d1",
+    "final": "f64ca649412a3c11aff8d04fcb3e589c19b1fd89b7b79ae56e9ef5359c210371",
+    "no_formula": "35d446c8f315a81af5c559da66fc5fa9744fbcd29313804881530c99011f751a",
+    "no_neighbors": "600c583b497a4fb56707ef01e750b14a8caef79f8491dda541c05ed7be056961"
+  },
+  "endpoint_sha256": "9cbb357010bdd2d2963640176b9b40b6c171fdf44abaf5fd50f2444bf2bbdcee"
+}

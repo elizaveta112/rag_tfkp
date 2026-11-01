@@ -1,0 +1,9 @@
+{
+  "selected_mode": "no_formula",
+  "Q_automatic": 0.7040277777777778,
+  "Q": 0.6206944444444444,
+  "E_local": 1.0,
+  "local_C_ref": 6939.6,
+  "local_score": 62.06944444444444,
+  "reference": "self-defined single_rag, not official baseline"
+}

@@ -1,0 +1,427 @@
+{
+  "reviewer": "Содержательная проверка с помощью ChatGPT; не официальный балл и не независимый закрытый тест.",
+  "rubric": "Одинаковая проверка всех 60 ответов: неверные ID, технический отказ или явное существенное ложное математическое утверждение в опубликованном обосновании → rejected. Неполная ссылка отдельно учитывается citation F1, недостаточная подробность без ложного утверждения не обнуляется. Ошибки нормировки и подмена достаточности необходимостью считаются существенными. Исходные ответы не исправлялись.",
+  "instructions": "Set verdict to accepted or rejected; a rejected answer requires a mathematical reason. Pending annotations do not change scores.",
+  "reviews": [
+    {
+      "mode": "single_rag",
+      "id": "qa_001",
+      "answer_sha256": "6b9e4f3abfb6312f4cda9afcbf0b981b8b94f29f9f1c144b51ce01f66247d6a4",
+      "verdict": "rejected",
+      "reason": "Непрерывность частных ошибочно названа необходимой для вещественной дифференцируемости в точке: это более сильное достаточное условие."
+    },
+    {
+      "mode": "single_rag",
+      "id": "qa_002",
+      "answer_sha256": "54718ff7e47c8b2bc94390b47bbed40f9521791492d8da6a93509f399d3d6cab",
+      "verdict": "accepted",
+      "reason": "При C¹: f_zbar=(f_x+i f_y)/2=0; f_z=0 не является критерием голоморфности."
+    },
+    {
+      "mode": "single_rag",
+      "id": "qa_003",
+      "answer_sha256": "405131073382cc97a3b81991e92174bc50a1d8be07af875f6c3e6507c2ad4110",
+      "verdict": "accepted",
+      "reason": "Гармоничность двух частей недостаточна: u=x, v=0 не удовлетворяют CR."
+    },
+    {
+      "mode": "single_rag",
+      "id": "qa_004",
+      "answer_sha256": "386249cfb5f46b656a7e1e8c99783503733da867056a094142f94cc86717086f",
+      "verdict": "rejected",
+      "reason": "Слова «нужна выпуклость или односвязность» превращают достаточные условия нулевых периодов в необходимые. Даже на неодносвязной области f=1 имеет первообразную z."
+    },
+    {
+      "mode": "single_rag",
+      "id": "qa_005",
+      "answer_sha256": "469acadf17d055f5215adabf2c08dcf01d071d54526822ba9f639457992c3d55",
+      "verdict": "rejected",
+      "reason": "В пересказе теоремы утрачена непрерывность в исключительной точке: одна голоморфность с единственной особой точкой не даёт нулевого интеграла; контрпример 1/z."
+    },
+    {
+      "mode": "single_rag",
+      "id": "qa_006",
+      "answer_sha256": "114d7838d6fdd18970f3e42dc95b070ba893f823eeb514fb287f2d7ec288fe13",
+      "verdict": "accepted",
+      "reason": "Непрерывная плотность на кривой даёт голоморфный интеграл Коши вне кривой и формулу всех производных."
+    },
+    {
+      "mode": "single_rag",
+      "id": "qa_007",
+      "answer_sha256": "a3257fddaed784a6d129951ba9bb1508d7f2fd97f092d035d120f2ee9a14be70",
+      "verdict": "rejected",
+      "reason": "Технический отказ вместо решения; не является математическим отказом по недостаточности данных."
+    },
+    {
+      "mode": "single_rag",
+      "id": "qa_008",
+      "answer_sha256": "7782b033c2791f8a8615bc1c75a32c4f0f5d804dd466d26ff5388b77c17e34eb",
+      "verdict": "accepted",
+      "reason": "Непрерывность и нулевые интегралы по всем треугольникам — условие Морера."
+    },
+    {
+      "mode": "single_rag",
+      "id": "qa_009",
+      "answer_sha256": "5afca8dcbb5a5449fdd1df6003bc9c28f732a5fd436eeaa7a2db6d51c25f3f67",
+      "verdict": "accepted",
+      "reason": "Голоморфность даёт все производные и гармоничность частей; обратное без CR неверно."
+    },
+    {
+      "mode": "single_rag",
+      "id": "qa_010",
+      "answer_sha256": "6a7fa107d6880a125b8a1105e618481cd71f59cbd9c67fa7f747a3b420a5a5ea",
+      "verdict": "accepted",
+      "reason": "c_n=f^(n)(0)/n!: c0=2,c1=-1,c2=3."
+    },
+    {
+      "mode": "single_rag",
+      "id": "qa_011",
+      "answer_sha256": "bbd167f22db31787789c2598e87257e16679c921f208a3e9018a6dd5e65b0018",
+      "verdict": "rejected",
+      "reason": "Технический отказ вместо решения; не является математическим отказом по недостаточности данных."
+    },
+    {
+      "mode": "single_rag",
+      "id": "qa_012",
+      "answer_sha256": "fd9074380702ddf22b645e11ceff76a4f3b56dd9a56e6ce932cde0303e55d6a1",
+      "verdict": "rejected",
+      "reason": "Технический отказ вместо решения; не является математическим отказом по недостаточности данных."
+    },
+    {
+      "mode": "single_rag",
+      "id": "qa_013",
+      "answer_sha256": "9ee25ace11717e338f741bacffac23804d051214f4708c761aab31c3e2047d3f",
+      "verdict": "rejected",
+      "reason": "Допустимые константы комплексные и образуют замкнутый единичный круг, а не отрезок [-1,1]. Неопределённость числа не вызвана отсутствием теоремы в контексте."
+    },
+    {
+      "mode": "single_rag",
+      "id": "qa_014",
+      "answer_sha256": "bac4d58c2e45943647034eaba0cee2f794ee0aec719cda84d64a5e3f70cd04f3",
+      "verdict": "accepted",
+      "reason": "Без направления обхода интеграл 1/z не определён однозначно: ±2πi; нормированный интеграл равен ±1."
+    },
+    {
+      "mode": "single_rag",
+      "id": "qa_015",
+      "answer_sha256": "f9de551d3939a8c06038b2abe23347c0bf5f9df2f60833c5c47fefedf11e0c69",
+      "verdict": "accepted",
+      "reason": "Из голоморфности в единичном круге следует R≥1, включая R=1 и R=∞, но не конкретное R."
+    },
+    {
+      "mode": "final",
+      "id": "qa_001",
+      "answer_sha256": "b6a30d1a071cf702defe66874bdf3d6f191d813d8d5d7094262820f9647b3534",
+      "verdict": "rejected",
+      "reason": "Непрерывность частных ошибочно названа необходимой для вещественной дифференцируемости в точке."
+    },
+    {
+      "mode": "final",
+      "id": "qa_002",
+      "answer_sha256": "0234bfd2f1e3e89295c6163ce82c99e88651f02bd6eabc57face72b2c9410207",
+      "verdict": "accepted",
+      "reason": "При C¹: f_zbar=(f_x+i f_y)/2=0; f_z=0 не является критерием голоморфности."
+    },
+    {
+      "mode": "final",
+      "id": "qa_003",
+      "answer_sha256": "01e00eab6c8c38fc0f95083674a0bc3a5b6784e4fc507ec96b9ad991b54cdf28",
+      "verdict": "accepted",
+      "reason": "Гармоничность двух частей недостаточна: u=x, v=0 не удовлетворяют CR."
+    },
+    {
+      "mode": "final",
+      "id": "qa_004",
+      "answer_sha256": "5a043e7c7ad888a7e403b6ec262381279206fa16ee92e258403b89b5e62aad31",
+      "verdict": "rejected",
+      "reason": "Технический отказ вместо решения; не является математическим отказом по недостаточности данных."
+    },
+    {
+      "mode": "final",
+      "id": "qa_005",
+      "answer_sha256": "441ed09e2b00a4d2118f7a4649c8e732170f8d67df3a6f19c8c6df87d2bd90c2",
+      "verdict": "rejected",
+      "reason": "Неверный набор вариантов или необоснованный отказ. Выпуклость и данные условия непрерывности/голоморфности дают нулевые периоды и глобальную первообразную."
+    },
+    {
+      "mode": "final",
+      "id": "qa_006",
+      "answer_sha256": "0d187df53cb2c8a7736ef43ec103a21282144845a61ec45bf8dcc48a78aca7bb",
+      "verdict": "accepted",
+      "reason": "Непрерывная плотность на кривой даёт голоморфный интеграл Коши вне кривой и формулу всех производных."
+    },
+    {
+      "mode": "final",
+      "id": "qa_007",
+      "answer_sha256": "46f707e2aba32d724b1488bd4fcac892eb5ccdea2b03ec7547d32f280f0c2da0",
+      "verdict": "rejected",
+      "reason": "Неверный набор вариантов или необоснованный отказ. Коэффициент z² у exp(z) равен 1/2; интеграл exp(z)/z³ равен πi."
+    },
+    {
+      "mode": "final",
+      "id": "qa_008",
+      "answer_sha256": "caef98dfae6eea7c06db0465cc5d36725355f37fee3503aa9a6a4874fc96b6c7",
+      "verdict": "accepted",
+      "reason": "Непрерывность и нулевые интегралы по всем треугольникам — условие Морера."
+    },
+    {
+      "mode": "final",
+      "id": "qa_009",
+      "answer_sha256": "05aa651d9ed990bf4d5976306f1c23a8f4d94b4377d60472852bc58da438e409",
+      "verdict": "accepted",
+      "reason": "Голоморфность даёт все производные и гармоничность частей; обратное без CR неверно."
+    },
+    {
+      "mode": "final",
+      "id": "qa_010",
+      "answer_sha256": "001167f43b2f88b4083174aadca060431cd8c04a9995690f11ebd3eceb59576c",
+      "verdict": "accepted",
+      "reason": "c_n=f^(n)(0)/n!: c0=2,c1=-1,c2=3."
+    },
+    {
+      "mode": "final",
+      "id": "qa_011",
+      "answer_sha256": "e7a8539133d71ad8c613354eb7a6e678f1574adf926e068198d6d353dadcd5d0",
+      "verdict": "accepted",
+      "reason": "Целая функция роста O(|z|³) — полином степени ≤3, четвёртая производная равна нулю."
+    },
+    {
+      "mode": "final",
+      "id": "qa_012",
+      "answer_sha256": "be290666014e569e6b4b32c2ea65521d3d32670420ccffe4bfbc8a9ed03675aa",
+      "verdict": "rejected",
+      "reason": "Неверный набор вариантов или необоснованный отказ. Обе функции целые: 0 — внутренняя предельная точка нулей f, поэтому f≡0. Для g контрпример sin(πz)."
+    },
+    {
+      "mode": "final",
+      "id": "qa_013",
+      "answer_sha256": "3b88128cb6b8701f906e0f6c87e677c52f72d149a23faed53eecfc29d6587af8",
+      "verdict": "rejected",
+      "reason": "Технический отказ вместо решения; не является математическим отказом по недостаточности данных."
+    },
+    {
+      "mode": "final",
+      "id": "qa_014",
+      "answer_sha256": "d462c3db4583368416c3530cdfac807c6280f6cde706bc06227b99ed568ae8a8",
+      "verdict": "rejected",
+      "reason": "Вычет 1/z равен 1 независимо от ориентации. Также смешаны значения нормированного интеграла ±1 и исходного ±2πi."
+    },
+    {
+      "mode": "final",
+      "id": "qa_015",
+      "answer_sha256": "63271c4726299c5b75199e8dbc9fb238535ee4d965e33389e1ed0c7a5824871d",
+      "verdict": "accepted",
+      "reason": "Из голоморфности в единичном круге следует R≥1, включая R=1 и R=∞, но не конкретное R."
+    },
+    {
+      "mode": "no_formula",
+      "id": "qa_001",
+      "answer_sha256": "3bc975a1f7510257e8a1a14c90fcd9d3c1861575ebcef44fa7ca9679b06426d5",
+      "verdict": "accepted",
+      "reason": "Критерий Коши—Римана: вещественная дифференцируемость и CR в точке; голоморфность окрестности не следует."
+    },
+    {
+      "mode": "no_formula",
+      "id": "qa_002",
+      "answer_sha256": "60a251be729ec138c20870f39f8465dae778064b3d2aafa0071a4c06a085ea63",
+      "verdict": "rejected",
+      "reason": "Неверный набор вариантов или необоснованный отказ. При C¹: f_zbar=(f_x+i f_y)/2=0; f_z=0 не является критерием голоморфности."
+    },
+    {
+      "mode": "no_formula",
+      "id": "qa_003",
+      "answer_sha256": "881b33aaa73efc3ea3302458bbedb777725fe1b9a4274587bacd4c4671ef9658",
+      "verdict": "accepted",
+      "reason": "Гармоничность двух частей недостаточна: u=x, v=0 не удовлетворяют CR."
+    },
+    {
+      "mode": "no_formula",
+      "id": "qa_004",
+      "answer_sha256": "b893333a31affae752cc3045219fd4dd40404a48a798484fecaa497df11c74a7",
+      "verdict": "accepted",
+      "reason": "У 1/z нет глобальной первообразной на C\\{0}, локальные есть; положительный единичный обход даёт 2πi."
+    },
+    {
+      "mode": "no_formula",
+      "id": "qa_005",
+      "answer_sha256": "9e40f43c22b253b45183bd5eb63a247fb5da7dc89db283167a2ad064c3af815e",
+      "verdict": "accepted",
+      "reason": "Выпуклость и данные условия непрерывности/голоморфности дают нулевые периоды и глобальную первообразную."
+    },
+    {
+      "mode": "no_formula",
+      "id": "qa_006",
+      "answer_sha256": "cb4a81950857a63bfa6e8b0cef7e6d8d54e77380c450c36235fbcf00fbb5a548",
+      "verdict": "accepted",
+      "reason": "Непрерывная плотность на кривой даёт голоморфный интеграл Коши вне кривой и формулу всех производных."
+    },
+    {
+      "mode": "no_formula",
+      "id": "qa_007",
+      "answer_sha256": "46f4da4737a121786db7371ec7390b12add2730caa17179c8f7f4e8183d32fdc",
+      "verdict": "rejected",
+      "reason": "Неверный набор вариантов или необоснованный отказ. Коэффициент z² у exp(z) равен 1/2; интеграл exp(z)/z³ равен πi."
+    },
+    {
+      "mode": "no_formula",
+      "id": "qa_008",
+      "answer_sha256": "caef98dfae6eea7c06db0465cc5d36725355f37fee3503aa9a6a4874fc96b6c7",
+      "verdict": "accepted",
+      "reason": "Непрерывность и нулевые интегралы по всем треугольникам — условие Морера."
+    },
+    {
+      "mode": "no_formula",
+      "id": "qa_009",
+      "answer_sha256": "64e9e8c45ee38c2636c5eed825c22306aea95432dcefd7417ae7359cd4d49c12",
+      "verdict": "rejected",
+      "reason": "Технический отказ вместо решения; не является математическим отказом по недостаточности данных."
+    },
+    {
+      "mode": "no_formula",
+      "id": "qa_010",
+      "answer_sha256": "3cf6a341b174180df0ef3fe8afce941024de3dbadb366f87cb3b2b3d952d1fb9",
+      "verdict": "accepted",
+      "reason": "c_n=f^(n)(0)/n!: c0=2,c1=-1,c2=3."
+    },
+    {
+      "mode": "no_formula",
+      "id": "qa_011",
+      "answer_sha256": "e05432510223180531120f54b7c04f39df6723e6991cc3cef6285ddf0070ff0b",
+      "verdict": "accepted",
+      "reason": "Целая функция роста O(|z|³) — полином степени ≤3, четвёртая производная равна нулю."
+    },
+    {
+      "mode": "no_formula",
+      "id": "qa_012",
+      "answer_sha256": "4507618db97452298711c739d7b6c2ec46f57d9dee4c1a73e37e831b3cbd374c",
+      "verdict": "rejected",
+      "reason": "Неверный набор вариантов или необоснованный отказ. Обе функции целые: 0 — внутренняя предельная точка нулей f, поэтому f≡0. Для g контрпример sin(πz)."
+    },
+    {
+      "mode": "no_formula",
+      "id": "qa_013",
+      "answer_sha256": "a283f31dc378a0b8dd37df50baea93c5149ff2a9b5a18d4a37235022d4b0376c",
+      "verdict": "rejected",
+      "reason": "Отказ обоснован отсутствием теоремы вместо неединственности постоянной; утверждение |f(0)|→0 при M→const неверно, контрпример f≡1."
+    },
+    {
+      "mode": "no_formula",
+      "id": "qa_014",
+      "answer_sha256": "ca573325a4a19102665c670099b4605f19cd23171dc08301802d7213b7ebd2a2",
+      "verdict": "accepted",
+      "reason": "Без направления обхода интеграл 1/z не определён однозначно: ±2πi; нормированный интеграл равен ±1."
+    },
+    {
+      "mode": "no_formula",
+      "id": "qa_015",
+      "answer_sha256": "6c25aaf4d65e33dd535a67d48015503be7928e920dafe33aefe947de45f26dea",
+      "verdict": "accepted",
+      "reason": "Из голоморфности в единичном круге следует R≥1, включая R=1 и R=∞, но не конкретное R."
+    },
+    {
+      "mode": "no_neighbors",
+      "id": "qa_001",
+      "answer_sha256": "74c20346223b5076ee31fb5f09fe0685dd2463a7b8c2d8a9d0f58d10b64dcdbc",
+      "verdict": "accepted",
+      "reason": "Критерий Коши—Римана: вещественная дифференцируемость и CR в точке; голоморфность окрестности не следует."
+    },
+    {
+      "mode": "no_neighbors",
+      "id": "qa_002",
+      "answer_sha256": "6c626caf6adfe1cf28a30ba05383396d7dff75d0bf5407332a59dbb2ea42d694",
+      "verdict": "rejected",
+      "reason": "Условие f_z=0 не означает постоянство: f(z)=сопряжённое z — непостоянная C¹-функция с f_z=0."
+    },
+    {
+      "mode": "no_neighbors",
+      "id": "qa_003",
+      "answer_sha256": "78966249a0bca5b23b03a733ca034c8eb76b66d8e539bf309fa72f545e931ca7",
+      "verdict": "accepted",
+      "reason": "Гармоничность двух частей недостаточна: u=x, v=0 не удовлетворяют CR."
+    },
+    {
+      "mode": "no_neighbors",
+      "id": "qa_004",
+      "answer_sha256": "39021273031a20dd5d078c10f3d68bd712061ea1a52b193e3682fa91af09d469",
+      "verdict": "rejected",
+      "reason": "Нулевой интеграл ошибочно разрешён только при односвязности или полюсе вне кривой. Для 1/z он равен 2πi·Ind(γ,0); замкнутая кривая может иметь нулевой индекс и в проколотой плоскости."
+    },
+    {
+      "mode": "no_neighbors",
+      "id": "qa_005",
+      "answer_sha256": "c4be1de3e3a3045d94480c2f481bd441bedbc943f1663186b20ea089667e351d",
+      "verdict": "accepted",
+      "reason": "Выпуклость и данные условия непрерывности/голоморфности дают нулевые периоды и глобальную первообразную."
+    },
+    {
+      "mode": "no_neighbors",
+      "id": "qa_006",
+      "answer_sha256": "603756a004b81f195607b0441c4c58c82ee5960a2f7b8a2aa5e29c58c81e4f1a",
+      "verdict": "accepted",
+      "reason": "Непрерывная плотность на кривой даёт голоморфный интеграл Коши вне кривой и формулу всех производных."
+    },
+    {
+      "mode": "no_neighbors",
+      "id": "qa_007",
+      "answer_sha256": "7f7035bb4a308626e6254f93ba5c689c5c94989a56afa4387dbbecb0c583895f",
+      "verdict": "accepted",
+      "reason": "Коэффициент z² у exp(z) равен 1/2; интеграл exp(z)/z³ равен πi."
+    },
+    {
+      "mode": "no_neighbors",
+      "id": "qa_008",
+      "answer_sha256": "995acc7e02e0c47f6230cc1c77a497a2bd0b819e9b96168e26445449eec4857a",
+      "verdict": "accepted",
+      "reason": "Непрерывность и нулевые интегралы по всем треугольникам — условие Морера."
+    },
+    {
+      "mode": "no_neighbors",
+      "id": "qa_009",
+      "answer_sha256": "f0f86e6486b42b94ade1c1c2bef7fbc6223f8626f802abba76927cf828ff3d4c",
+      "verdict": "accepted",
+      "reason": "Голоморфность даёт все производные и гармоничность частей; обратное без CR неверно."
+    },
+    {
+      "mode": "no_neighbors",
+      "id": "qa_010",
+      "answer_sha256": "728fcecbf294a4be6fa1608a5dc2edf6ac50b7f7f77c449cb4741edc931edada",
+      "verdict": "accepted",
+      "reason": "c_n=f^(n)(0)/n!: c0=2,c1=-1,c2=3."
+    },
+    {
+      "mode": "no_neighbors",
+      "id": "qa_011",
+      "answer_sha256": "61aaeabb0cf3471b82f246bb1e8781084718e2faae836b26a9e4b8fd8a008c19",
+      "verdict": "accepted",
+      "reason": "Целая функция роста O(|z|³) — полином степени ≤3, четвёртая производная равна нулю."
+    },
+    {
+      "mode": "no_neighbors",
+      "id": "qa_012",
+      "answer_sha256": "dea1199fd37f5b553dbea56b0748b09543e137e206d47c5979e477c27ad982db",
+      "verdict": "rejected",
+      "reason": "Неверный набор вариантов или необоснованный отказ. Обе функции целые: 0 — внутренняя предельная точка нулей f, поэтому f≡0. Для g контрпример sin(πz)."
+    },
+    {
+      "mode": "no_neighbors",
+      "id": "qa_013",
+      "answer_sha256": "674b5ebaf79f8f598acdec82bc87ee97bd6f4e720bd69239df1b8334d1977793",
+      "verdict": "rejected",
+      "reason": "Число не определяется из-за произвольной константы |c|≤1, а не отсутствия теоремы в фрагментах. Упоминание «Леммы Лехнера» не обосновывает отказ."
+    },
+    {
+      "mode": "no_neighbors",
+      "id": "qa_014",
+      "answer_sha256": "f276905c833ec1a44b084ed39643d79e0eda1a351c22090baa32213f49d038be",
+      "verdict": "rejected",
+      "reason": "Смешаны нормированный и исходный интегралы: после множителя 1/(2πi) возможны ±1, а не заявленные ±2πi."
+    },
+    {
+      "mode": "no_neighbors",
+      "id": "qa_015",
+      "answer_sha256": "29027f6a497a39af1f394bdb582ca28bc3d198d5fff6f8211564a17aa787c82e",
+      "verdict": "rejected",
+      "reason": "Написано R≠1, хотя из условия следует R≥1. Значение R=1 допустимо, например для 1/(1−z); R<1 недопустимы."
+    }
+  ]
+}

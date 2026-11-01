@@ -1,0 +1,14 @@
+{
+  "selected_mode": "no_formula",
+  "basis": "Q",
+  "review_complete": true,
+  "reviewed_count": 60,
+  "policy": "Maximum Q after complete uniform review; otherwise preliminary automatic Q. Lower mean cost breaks an exact tie. One whole mode, no answer edits.",
+  "answer_accuracy": 0.7333333333333333,
+  "Q_automatic": 0.7040277777777778,
+  "Q": 0.6206944444444444,
+  "dev_answers_sha256": "101db6de19ef63d0191083e6855710ee7c74761e09cc52560effb5fd5bfcd679",
+  "dev_trace_sha256": "d670772e2286ee680113c3acf5b8870a0cd855dbcb488f11d65d20c9e8804efa",
+  "measured_config_sha256": "12196d26a519b75398427febeb2e54c62e6681c6d8595dea3f8f3c7d9745d5a6",
+  "config_sha256": "8d41e04f575b8202f96e740144c48a5d36cb9071767b753b47e51d9b4a2d15ec"
+}

@@ -1,0 +1,51 @@
+{
+  "origin": "self-defined from assignment and instructor clarification",
+  "model": {
+    "repo": "Qwen/Qwen3.5-4B",
+    "revision": "851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a"
+  },
+  "weights": {
+    "repo": "unsloth/Qwen3.5-4B-GGUF",
+    "revision": "e87f176479d0855a907a41277aca2f8ee7a09523",
+    "filename": "Qwen3.5-4B-Q4_K_M.gguf",
+    "size_bytes": 2740937888,
+    "sha256": "00fe7986ff5f6b463e62455821146049db6f9313603938a70800d1fb69ef11a4",
+    "quantization": "Q4_K_M"
+  },
+  "generation": {
+    "max_tokens": 768,
+    "temperature": 0.2,
+    "top_p": 0.95,
+    "top_k": 20,
+    "min_p": 0.0,
+    "seed": 42,
+    "chat_template_kwargs": {
+      "enable_thinking": false
+    },
+    "response_format": {
+      "type": "json_object"
+    }
+  },
+  "timeout_seconds": 600,
+  "inference": {
+    "llama_cpp_python_version": "0.3.36",
+    "n_ctx": 8192,
+    "n_batch": 256,
+    "default_gpu_layers": -1,
+    "precision": "GGUF Q4_K_M"
+  },
+  "limits": {
+    "llm_calls": 4,
+    "input_tokens": 16384,
+    "output_tokens": 4096,
+    "single_total": 8192
+  },
+  "resources": {
+    "retrieval_device": "cpu",
+    "retrieval_peak_rss_budget_gib": 1,
+    "recommended_system_ram_gib": 8,
+    "target_free_gpu_memory_gib": 16,
+    "cpu_threads_for_recorded_run": 8,
+    "note": "GPU availability is platform-controlled; CPU fallback is supported; index and model startup measured separately."
+  }
+}

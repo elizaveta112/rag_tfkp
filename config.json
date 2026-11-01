@@ -1,0 +1,23 @@
+{
+  "mode": "no_formula",
+  "runtime_binding": "runtime_binding.json",
+  "tokenizer_dir": "assets/qwen_tokenizer",
+  "retrieval": {
+    "chunk_chars": 1400,
+    "seed_chunks": 12,
+    "candidate_chunks": 24,
+    "neighbor_seeds": 4,
+    "max_context_blocks": 8,
+    "max_chunks_per_block": 2
+  },
+  "limits": {
+    "max_calls": 4,
+    "total_input": 16384,
+    "total_output": 4096,
+    "request_total": 8192,
+    "prompt_safety_tokens": 64
+  },
+  "repair_format": true,
+  "runtime_json": "runtime.json",
+  "model_path": "assets/models/Qwen3.5-4B-Q4_K_M.gguf"
+}
