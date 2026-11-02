@@ -7,9 +7,9 @@
 
 ## Запуск в Colab
 
-1. Открыть `notebooks/RAG_TFKP_Qwen35_4B.ipynb` в новой сессии Colab и выбрать GPU T4.
-2. Выполнить первую ячейку и загрузить `RAG_TFKP_final.zip`. При запуске из клонированного репозитория разместить проект в `/content/rag_solution`.
-3. Выполнять ячейки по порядку: установка, подготовка данных, тесты, пробный запрос, пять экспериментов и сборка результатов.
+1. [Открыть ноутбук в Colab](https://colab.research.google.com/github/elizaveta112/rag_tfkp/blob/main/notebooks/RAG_TFKP_Qwen35_4B.ipynb).
+2. Выбрать GPU T4: «Среда выполнения → Сменить среду выполнения».
+3. Выполнять ячейки по порядку. Первая ячейка автоматически клонирует этот репозиторий в `/content/rag_solution`; далее устанавливаются зависимости, скачиваются PDF и веса, создаются данные и запускаются эксперименты.
 
 Модель работает в сессии Colab. Веса Q4_K_M занимают
 около 2,74 GB. Сборка CUDA включена в ноутбук.
@@ -20,6 +20,8 @@ Python 3.11, NVIDIA GPU, CUDA toolkit и C++-компилятор. Команд�
 проекта. Для T4 используется архитектура CUDA 75.
 
 ```bash
+git clone https://github.com/elizaveta112/rag_tfkp.git
+cd rag_tfkp
 python3.11 -m venv .venv
 source .venv/bin/activate
 CMAKE_ARGS='-DGGML_CUDA=ON -DCMAKE_CUDA_ARCHITECTURES=75' CMAKE_BUILD_PARALLEL_LEVEL=2 python -m pip install -r requirements.txt
