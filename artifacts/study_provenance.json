@@ -25,6 +25,7 @@
           "decisions.py": "7d8efc898a0dc9e740124891f907f73fd92614b97e005cf7ecb5c1325aa3d80e"
         }
       },
+      "layout_origin": "historical_layout_migration",
       "metrics": {
         "answer_accuracy": 0.7333333333333333,
         "Q": null,
@@ -66,6 +67,7 @@
           "decisions.py": "7d8efc898a0dc9e740124891f907f73fd92614b97e005cf7ecb5c1325aa3d80e"
         }
       },
+      "layout_origin": "historical_layout_migration",
       "metrics": {
         "answer_accuracy": 0.8,
         "Q": 0.51625,
@@ -112,6 +114,7 @@
           "decisions.py": "7d8efc898a0dc9e740124891f907f73fd92614b97e005cf7ecb5c1325aa3d80e"
         }
       },
+      "layout_origin": "historical_layout_migration",
       "metrics": {
         "answer_accuracy": 0.6666666666666666,
         "Q": 0.5116666666666667,
@@ -158,6 +161,7 @@
           "decisions.py": "7d8efc898a0dc9e740124891f907f73fd92614b97e005cf7ecb5c1325aa3d80e"
         }
       },
+      "layout_origin": "historical_layout_migration",
       "metrics": {
         "answer_accuracy": 0.7333333333333333,
         "Q": 0.6206944444444444,
@@ -204,6 +208,7 @@
           "decisions.py": "7d8efc898a0dc9e740124891f907f73fd92614b97e005cf7ecb5c1325aa3d80e"
         }
       },
+      "layout_origin": "historical_layout_migration",
       "metrics": {
         "answer_accuracy": 0.9333333333333333,
         "Q": 0.5691666666666667,

@@ -1,3 +1,8 @@
+import sys as _sys
+from pathlib import Path as _Path
+for _directory in (_Path(__file__).resolve().parents[1], _Path(__file__).resolve().parents[1]/'src', _Path(__file__).resolve().parents[1]/'scripts'):
+    _sys.path.insert(0, str(_directory))
+from common import project_path
 #!/usr/bin/env python3
 """Verify measured runs, uniformly rescore, then publish one complete mode."""
 import csv
@@ -14,28 +19,28 @@ FIELDS = ('name', 'answer_accuracy', 'Q_automatic', 'Q', 'semantic_reviewed',
 
 
 def main():
-    measured = ROOT/'measured_config.json'
+    measured = project_path(ROOT, 'measured_config.json')
     if not measured.exists():
         raise ValueError('Missing measured_config.json: preserve the exact configuration used for inference')
     original = json.loads(measured.read_text())
-    active = json.loads((ROOT/'config.json').read_text())
+    active = json.loads((project_path(ROOT, 'config.json')).read_text())
     if {k:v for k,v in original.items() if k != 'mode'} != {k:v for k,v in active.items() if k != 'mode'}:
         raise ValueError('Only default mode may change after measurement; inference settings were modified')
-    reconciliation = json.loads((ROOT/'usage_reconciliation.json').read_text())
-    if not reconciliation.get('verified') or reconciliation['endpoint_sha256'] != sha256(ROOT/'endpoint_usage.jsonl'):
+    reconciliation = json.loads((project_path(ROOT, 'usage_reconciliation.json')).read_text())
+    if not reconciliation.get('verified') or reconciliation['endpoint_sha256'] != sha256(project_path(ROOT, 'endpoint_usage.jsonl')):
         raise ValueError('Run verify_usage.py for the current independent endpoint journal')
-    questions, gold = read_jsonl(ROOT/'dev_questions.jsonl'), read_jsonl(ROOT/'dev_gold.jsonl')
-    corpus_ids = {b['block_id'] for b in read_jsonl(ROOT/'corpus.jsonl')}
+    questions, gold = read_jsonl(project_path(ROOT, 'dev_questions.jsonl')), read_jsonl(project_path(ROOT, 'dev_gold.jsonl'))
+    corpus_ids = {b['block_id'] for b in read_jsonl(project_path(ROOT, 'corpus.jsonl'))}
     results, provenance = {}, {}
     for mode in MODES:
         answer, trace = ROOT/f'experiments/{mode}.answers.jsonl', ROOT/f'experiments/{mode}.trace.jsonl'
         if reconciliation['trace_sha256'][mode] != sha256(trace):
             raise ValueError('Measured trace changed: '+mode)
         state = json.loads((ROOT/f'experiments/{mode}.answers.jsonl.run.json').read_text())
-        current = fingerprint(ROOT/'index', ROOT/'dev_questions.jsonl', measured, mode)
-        if state != current:
-            raise ValueError('Measured source, configuration, inputs or runtime changed: '+mode)
-        annotations = matching_reviews(ROOT/'semantic_reviews.json', mode, read_jsonl(answer))
+        current = fingerprint(ROOT/'index', project_path(ROOT, 'dev_questions.jsonl'), measured, mode)
+        from layout_provenance import verify_recorded_run
+        origin = verify_recorded_run(ROOT, mode, state, current)
+        annotations = matching_reviews(project_path(ROOT, 'semantic_reviews.json'), mode, read_jsonl(answer))
         automatic = evaluate(questions, gold, answer, trace, corpus_ids, mode == 'no_context')
         result = evaluate(questions, gold, answer, trace, corpus_ids, mode == 'no_context', semantic_reviews=annotations)
         if not result['accounting_verified']:
@@ -44,14 +49,14 @@ def main():
         results[mode] = result
         dump(ROOT/f'experiments/{mode}.metrics.json', result)
         provenance[mode] = {'answers_sha256': sha256(answer), 'trace_sha256': sha256(trace),
-                            'run_identity': state, 'metrics': {k:v for k,v in result.items() if k != 'records'}}
+                            'run_identity': state, 'layout_origin': origin, 'metrics': {k:v for k,v in result.items() if k != 'records'}}
     complete = all(results[m]['semantic_reviewed'] == len(questions) for m in MODES if m != 'no_context')
     # No question-wise mixing. On a fresh run, unmatched old reviews cannot affect selection.
     key = 'Q' if complete else 'Q_automatic'
     selected = max((m for m in MODES if m != 'no_context'),
                    key=lambda m: (results[m][key], -results[m]['mean_cost']))
     active['mode'] = selected
-    dump(ROOT/'config.json', active)
+    dump(project_path(ROOT, 'config.json'), active)
     shutil.copyfile(ROOT/f'experiments/{selected}.answers.jsonl', ROOT/'dev_answers.jsonl')
     write_jsonl(ROOT/'dev_trace.jsonl', [{k:v for k,v in t.items() if k != 'context_fragments'}
                 for t in read_jsonl(ROOT/f'experiments/{selected}.trace.jsonl')])
@@ -64,36 +69,37 @@ def main():
         'policy': 'Maximum Q after complete uniform review; otherwise preliminary automatic Q. Lower mean cost breaks an exact tie. One whole mode, no answer edits.',
         'answer_accuracy': chosen['answer_accuracy'], 'Q_automatic': chosen['Q_automatic'], 'Q': chosen['Q'],
         'dev_answers_sha256': sha256(ROOT/'dev_answers.jsonl'), 'dev_trace_sha256': sha256(ROOT/'dev_trace.jsonl'),
-        'measured_config_sha256': sha256(measured), 'config_sha256': sha256(ROOT/'config.json')}
-    dump(ROOT/'selection.json', selection)
+        'measured_config_sha256': sha256(measured), 'config_sha256': sha256(project_path(ROOT, 'config.json'))}
+    dump(project_path(ROOT, 'selection.json'), selection)
     manifest = json.loads((ROOT/'index/manifest.json').read_text())
-    dump(ROOT/'study_provenance.json', {'kind': 'Original five measured runs, not new inference',
+    dump(project_path(ROOT, 'study_provenance.json'), {'kind': 'Original five measured runs, not new inference',
         'experiments': provenance, 'endpoint_reconciliation': reconciliation, 'index_manifest': manifest,
-        'gold_sha256': sha256(ROOT/'dev_gold.jsonl'), 'review_sha256': sha256(ROOT/'semantic_reviews.json') if (ROOT/'semantic_reviews.json').exists() else None})
+        'gold_sha256': sha256(project_path(ROOT, 'dev_gold.jsonl')), 'review_sha256': sha256(project_path(ROOT, 'semantic_reviews.json')) if (project_path(ROOT, 'semantic_reviews.json')).exists() else None})
     c_ref = results['single_rag']['mean_cost']
     efficiency = min(1., c_ref/max(chosen['mean_cost'], 1))
-    dump(ROOT/'final_metrics.json', {'selected_mode': selected, 'Q_automatic': chosen['Q_automatic'],
+    dump(project_path(ROOT, 'final_metrics.json'), {'selected_mode': selected, 'Q_automatic': chosen['Q_automatic'],
         'Q': chosen['Q'], 'E_local': efficiency, 'local_C_ref': c_ref,
         'local_score': chosen['Q']*(75+25*efficiency), 'reference': 'self-defined single_rag, not official baseline'})
     write_content_review(results, selected, complete)
-    report = make_report(results, selected, complete, manifest, reconciliation)
+    report = make_report(results, selected, complete, manifest, reconciliation, historical=any(p['layout_origin']=='historical_layout_migration' for p in provenance.values()))
     if len(report.split()) > 1500:
         raise ValueError('Report exceeds 1500 words')
     (ROOT/'report.md').write_text(report, encoding='utf-8')
     required = ('dev_questions.jsonl', 'dev_gold.jsonl', 'own_questions.jsonl', 'own_gold.jsonl',
         'dev_answers.jsonl', 'dev_trace.jsonl', 'experiments.csv', 'config.json', 'measured_config.json',
         'runtime.json', 'runtime_binding.json', 'selection.json', 'study_provenance.json',
-        'semantic_reviews.json', 'report.md', 'final_metrics.json')
-    dump(ROOT/'completion_manifest.json', {'status': 'computed', 'review_complete': complete,
-        'selected_mode': selected, 'files_sha256': {n:sha256(ROOT/n) for n in required if (ROOT/n).exists()},
+        'semantic_reviews.json', 'report.md', 'final_metrics.json', 'artifacts/layout_migration.json')
+    dump(project_path(ROOT, 'completion_manifest.json'), {'status': 'computed', 'review_complete': complete,
+        'selected_mode': selected, 'files_sha256': {str(project_path(ROOT,n).relative_to(ROOT)):sha256(project_path(ROOT, n)) for n in required if (project_path(ROOT, n)).exists()},
         'source_sha256': current['source_sha256'],
-        'notes': 'Measured outputs are unchanged. Content review is assisted by ChatGPT, not an official grade.'})
+        'measurement_source_sha256': state['source_sha256'],
+        'notes': 'Measured outputs are unchanged; layout migration is recorded separately. Content review is assisted by ChatGPT, not an official grade.'})
     print(f'Selected {selected}; automatic Q={chosen["Q_automatic"]:.6f}; reviewed Q={chosen["Q"]:.6f}; '
           f'reviewed={selection["reviewed_count"]}/60; report={len(report.split())} words')
 
 
 def write_content_review(results, selected, complete):
-    path=ROOT/'semantic_reviews.json'
+    path=project_path(ROOT, 'semantic_reviews.json')
     document=json.loads(path.read_text()) if path.exists() else {}
     n=sum(results[m]['semantic_reviewed'] for m in MODES if m!='no_context')
     lines=['# Содержательная проверка RAG-ответов',
@@ -121,9 +127,9 @@ def write_content_review(results, selected, complete):
     (directory/'content_review.md').write_text('\n'.join(lines)+'\n',encoding='utf-8')
 
 
-def make_report(results, selected, complete, manifest, usage):
-    runtime = json.loads((ROOT/'runtime.json').read_text())
-    resource = json.loads((ROOT/'server_resources.json').read_text())
+def make_report(results, selected, complete, manifest, usage, historical=False):
+    runtime = json.loads((project_path(ROOT, 'runtime.json')).read_text())
+    resource = json.loads((project_path(ROOT, 'server_resources.json')).read_text())
     rows = ['| Режим | Accuracy | Q auto | Q review | In | Out | Calls | C | Median ms |',
             '|---|---:|---:|---:|---:|---:|---:|---:|---:|']
     for mode, r in results.items():
@@ -132,7 +138,7 @@ def make_report(results, selected, complete, manifest, usage):
         rows.append(f'| {mode} | {r["answer_accuracy"]:.4f} | {auto} | {reviewed} | '
                     f'{r["mean_input_tokens"]:.1f} | {r["mean_output_tokens"]:.1f} | '
                     f'{r["mean_llm_calls"]:.2f} | {r["mean_cost"]:.1f} | {r["median_latency_ms"]:.0f} |')
-    qmap = {q['id']:q for q in read_jsonl(ROOT/'dev_questions.jsonl')}
+    qmap = {q['id']:q for q in read_jsonl(project_path(ROOT, 'dev_questions.jsonl'))}
     amap = {a['id']:a for a in read_jsonl(ROOT/'dev_answers.jsonl')}
     tmap = {t['id']:t for t in read_jsonl(ROOT/f'experiments/{selected}.trace.jsonl')}
     # These three current-run failures span sign extraction, reasoning and refusal.
@@ -140,7 +146,7 @@ def make_report(results, selected, complete, manifest, usage):
     failures = [r for r in results[selected]['records'] if not r['correct'] or r['semantic_error']]
     failures.sort(key=lambda r: (preferred.index(r['id']) if r['id'] in preferred else 99, r['id']))
     errors=[]
-    gold = {g['id']:g for g in read_jsonl(ROOT/'dev_gold.jsonl')}
+    gold = {g['id']:g for g in read_jsonl(project_path(ROOT, 'dev_gold.jsonl'))}
     for r in failures[:3]:
         qid=r['id']; a=amap[qid]; t=tmap[qid]
         reason=r['semantic_error'] or r['error'] or gold[qid]['rationale']
@@ -157,6 +163,7 @@ def make_report(results, selected, complete, manifest, usage):
     review_count=sum(results[m]['semantic_reviewed'] for m in MODES if m!='no_context')
     selected_r=results[selected]
     audit_status='завершена' if complete else 'не завершена; выбор предварительный, нужна новая проверка изменившихся ответов'
+    migration_note = ('Перенос файлов по каталогам оформлен в artifacts/layout_migration.json. Измерения относятся к исходной версии до переноса; повторная генерация при реорганизации не выполнялась.' if historical else '')
     return f'''# RAG по учебнику ТФКП
 
 Смагина Елизавета Марковна, М05-512д.
@@ -243,6 +250,8 @@ RAG-ответов; проверка {audit_status}. Разметка с при�
 сохраняют исходные хеши измерений. Новые генерации могут отличаться даже с тем же
 seed и требуют новой содержательной проверки. Ограничение длины внутренней причины
 иногда приводит к техническому отказу; этот недостаток измеренной версии сохранён.
+
+{migration_note}
 
 При подготовке кода, отчёта и содержательной разметки использовался ChatGPT.
 Экспериментальные ответы генерировала локальная Qwen3.5-4B.

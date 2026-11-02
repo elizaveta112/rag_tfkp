@@ -1,3 +1,8 @@
+import sys as _sys
+from pathlib import Path as _Path
+for _directory in (_Path(__file__).resolve().parents[1], _Path(__file__).resolve().parents[1]/'src', _Path(__file__).resolve().parents[1]/'scripts'):
+    _sys.path.insert(0, str(_directory))
+from common import project_path
 #!/usr/bin/env python3
 """Optional manual content annotations. Never imported by prediction."""
 import hashlib
@@ -34,15 +39,15 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--refresh', action='store_true', help='Rebuild pending rows for changed answers; retain only hash-matched existing judgments')
     args = parser.parse_args()
-    destination = ROOT/'semantic_reviews.json'
+    destination = project_path(ROOT, 'semantic_reviews.json')
     previous_document = json.loads(destination.read_text()) if destination.exists() else {}
     previous = previous_document.get('reviews', [])
     saved = {(x['mode'], x['id'], x['answer_sha256']): x for x in previous}
     if destination.exists() and not args.refresh:
         raise FileExistsError('semantic_reviews.json already exists; existing author annotations are not overwritten')
     rows, text = [], ['# Приватная проверка математических обоснований\n']
-    qmap = {q['id']: q for q in read_jsonl(ROOT/'dev_questions.jsonl')}
-    gmap = {q['id']: q for q in read_jsonl(ROOT/'dev_gold.jsonl')}
+    qmap = {q['id']: q for q in read_jsonl(project_path(ROOT, 'dev_questions.jsonl'))}
+    gmap = {q['id']: q for q in read_jsonl(project_path(ROOT, 'dev_gold.jsonl'))}
     for mode in ('single_rag', 'final', 'no_formula', 'no_neighbors'):
         for answer in read_jsonl(ROOT/f'experiments/{mode}.answers.jsonl'):
             qid = answer['id']

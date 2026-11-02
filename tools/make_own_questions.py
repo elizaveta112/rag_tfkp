@@ -1,3 +1,8 @@
+import sys as _sys
+from pathlib import Path as _Path
+for _directory in (_Path(__file__).resolve().parents[1], _Path(__file__).resolve().parents[1]/'src', _Path(__file__).resolve().parents[1]/'scripts'):
+    _sys.path.insert(0, str(_directory))
+from common import project_path
 #!/usr/bin/env python3
 """Eight author questions; source IDs require the actual official corpus."""
 import sys
@@ -96,8 +101,8 @@ def main():
             g['missing_information'] = 'Не задано f(0).' if i == 7 else 'Не задано f′(0), или c_1.'
         questions.append(q)
         gold.append(g)
-    write_jsonl(ROOT/'own_questions.jsonl', questions)
-    write_jsonl(ROOT/'own_gold.jsonl', gold)
+    write_jsonl(project_path(ROOT, 'own_questions.jsonl'), questions)
+    write_jsonl(project_path(ROOT, 'own_gold.jsonl'), gold)
 
 
 if __name__ == '__main__':

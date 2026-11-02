@@ -1,3 +1,8 @@
+import sys as _sys
+from pathlib import Path as _Path
+for _directory in (_Path(__file__).resolve().parents[1], _Path(__file__).resolve().parents[1]/'src', _Path(__file__).resolve().parents[1]/'scripts'):
+    _sys.path.insert(0, str(_directory))
+from common import project_path
 #!/usr/bin/env python3
 """Optional small private bundle for reviewing all five sets of rationales."""
 import zipfile
@@ -12,22 +17,22 @@ def main():
              'usage_reconciliation.json', 'index/manifest.json', 'corpus_audit.json',
              'selection.json', 'measured_config.json', 'study_provenance.json']
     names += [f'experiments/{mode}.answers.jsonl' for mode in MODES]
-    if (ROOT/'semantic_reviews.json').exists():
+    if (project_path(ROOT, 'semantic_reviews.json')).exists():
         names.append('semantic_reviews.json')
     for name in ('endpoint_usage.jsonl', 'request_attempts.jsonl'):
-        if (ROOT/name).exists():
+        if (project_path(ROOT, name)).exists():
             names.append(name)
-    missing = [n for n in names if not (ROOT/n).exists()]
+    missing = [n for n in names if not (project_path(ROOT, n)).exists()]
     if missing:
         raise ValueError('Complete the experiments and report first: '+', '.join(missing))
     with zipfile.ZipFile(ROOT/'results_for_review.zip', 'w', zipfile.ZIP_DEFLATED) as archive:
         for name in names:
-            archive.write(ROOT/name, name)
+            archive.write(project_path(ROOT, name), name)
         fragments, hashes = {}, {}
         for mode in MODES:
             name = f'experiments/{mode}.trace.jsonl'
-            hashes[name] = sha256(ROOT/name)
-            traces = read_jsonl(ROOT/name)
+            hashes[name] = sha256(project_path(ROOT, name))
+            traces = read_jsonl(project_path(ROOT, name))
             compact = []
             for trace in traces:
                 for fragment in trace.get('context_fragments', []):

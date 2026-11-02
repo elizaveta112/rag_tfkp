@@ -1,3 +1,8 @@
+import sys as _sys
+from pathlib import Path as _Path
+for _directory in (_Path(__file__).resolve().parents[1], _Path(__file__).resolve().parents[1]/'src', _Path(__file__).resolve().parents[1]/'scripts'):
+    _sys.path.insert(0, str(_directory))
+from common import project_path
 """Offline tests of input reproduction, safe continuation and release filtering."""
 import json
 import ast
@@ -7,7 +12,7 @@ import unittest
 from pathlib import Path
 from unittest.mock import patch
 
-sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]/'src'))
 from common import ROOT, write_jsonl, read_jsonl
 from run_state import start_or_resume, verify_saved_prefix
 from tools.convert_qa import convert
@@ -19,12 +24,12 @@ from formulas import canonical
 
 class DeliveryTests(unittest.TestCase):
     def test_actual_message_function_preserves_raw_formula_sources(self):
-        tree = ast.parse((ROOT/'predict.py').read_text(encoding='utf-8'))
+        tree = ast.parse((project_path(ROOT, 'predict.py')).read_text(encoding='utf-8'))
         definitions = [n for n in tree.body if
             (isinstance(n, ast.Assign) and any(isinstance(t, ast.Name) and t.id in ('SYSTEM','NO_CONTEXT') for t in n.targets)) or
             (isinstance(n, ast.FunctionDef) and n.name == 'messages')]
         namespace = {'canonical': canonical}
-        exec(compile(ast.Module(body=definitions, type_ignores=[]), str(ROOT/'predict.py'), 'exec'), namespace)
+        exec(compile(ast.Module(body=definitions, type_ignores=[]), str(project_path(ROOT, 'predict.py')), 'exec'), namespace)
         q = {'id':'math', 'question':r'Condition: \tfrac12(f_x+i f_y)=0',
              'options':[{'id':str(i),'text':r'\partial f/\partial\bar z=0'} for i in range(4)]}
         source = {'block_id':'original', 'page':12, 'section':'formula',
@@ -56,8 +61,8 @@ class DeliveryTests(unittest.TestCase):
 
     def test_source_qa_reproduces_all_supplied_question_records(self):
         q, g = convert((ROOT/'data/tfkp_15_qa.md').read_text(encoding='utf-8'))
-        self.assertEqual(q, read_jsonl(ROOT/'dev_questions.jsonl'))
-        self.assertEqual(g, read_jsonl(ROOT/'dev_references.jsonl'))
+        self.assertEqual(q, read_jsonl(project_path(ROOT, 'dev_questions.jsonl')))
+        self.assertEqual(g, read_jsonl(project_path(ROOT, 'dev_references.jsonl')))
 
     def test_continue_only_the_same_committed_prefix(self):
         with tempfile.TemporaryDirectory() as folder:
@@ -103,11 +108,11 @@ class DeliveryTests(unittest.TestCase):
                 'experiments/final.trace.jsonl', 'checkpoint/no_context.answers.jsonl',
                 'smoke/answer.jsonl', '.venv311/notes.md']
             for name in names:
-                p = root/name;p.parent.mkdir(parents=True, exist_ok=True);p.write_text('fixture')
+                p = project_path(root, name);p.parent.mkdir(parents=True, exist_ok=True);p.write_text('fixture')
             with patch.object(package_submission, 'ROOT', root):
                 actual = {str(p.relative_to(root)) for p in package_submission.files()}
-            self.assertEqual(actual, {'README.md','report.md','predict.py','data/tfkp_15_qa.md','dev_answers.jsonl',
-                'dev_trace.jsonl','runtime.json'})
+            self.assertEqual(actual, {'README.md','report.md','src/predict.py','data/tfkp_15_qa.md','dev_answers.jsonl',
+                'dev_trace.jsonl','configs/runtime.json'})
 
 
 if __name__ == '__main__':

@@ -1,3 +1,8 @@
+import sys as _sys
+from pathlib import Path as _Path
+for _directory in (_Path(__file__).resolve().parents[1], _Path(__file__).resolve().parents[1]/'src', _Path(__file__).resolve().parents[1]/'scripts'):
+    _sys.path.insert(0, str(_directory))
+from common import project_path
 #!/usr/bin/env python3
 """Package source and required results, excluding corpus, PDF, models and caches."""
 import zipfile
@@ -22,7 +27,7 @@ def files():
                 'config.json', 'runtime.json', 'runtime_binding.json', 'server_resources.json',
                 'error_reviews.json', 'completion_manifest.json', 'usage_reconciliation.json',
                 'final_metrics.json', 'semantic_reviews.json', 'measured_config.json',
-                'selection.json', 'study_provenance.json', '.gitignore'}:
+                'selection.json', 'study_provenance.json', 'layout_migration.json', '.gitignore'}:
             yield p
 
 
@@ -32,7 +37,7 @@ def main():
                 'own_questions.jsonl', 'own_gold.jsonl', 'prepare_data.py', 'pdf_corpus.py',
                 'prepare_questions.py', 'prepare_gold.py', 'prepare_all.py', 'data/tfkp_15_qa.md',
                 'requirements-core.txt', 'runtime_binding.json']
-    missing = [name for name in required if not (ROOT/name).exists()]
+    missing = [name for name in required if not (project_path(ROOT, name)).exists()]
     if missing:
         raise ValueError('Missing required outputs: '+', '.join(missing))
     from validate_submission import validate

@@ -1,2 +1,2 @@
--r requirements-core.txt
+-r requirements/core.txt
 llama-cpp-python==0.3.36

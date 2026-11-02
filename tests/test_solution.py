@@ -1,3 +1,8 @@
+import sys as _sys
+from pathlib import Path as _Path
+for _directory in (_Path(__file__).resolve().parents[1], _Path(__file__).resolve().parents[1]/'src', _Path(__file__).resolve().parents[1]/'scripts'):
+    _sys.path.insert(0, str(_directory))
+from common import project_path
 import contextlib
 import copy
 import io
@@ -11,7 +16,7 @@ import unittest
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 from unittest.mock import patch
-sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]/'src'))
 from common import ROOT, dump, write_jsonl, sha256, load_config, validate_answer
 from formulas import canonical, math_tokens, chunk_text
 from retrieval import Retriever
@@ -90,14 +95,14 @@ def question(qid):
 
 
 def fixture(root):
-    config = json.loads((ROOT/'config.json').read_text(encoding='utf-8'))
-    dump(root/'config.json', config)
-    dump(root/'runtime.json', {'TEST_ONLY': 'synthetic endpoint, not a Qwen run'})
+    config = json.loads((project_path(ROOT, 'config.json')).read_text(encoding='utf-8'))
+    dump(project_path(root, 'config.json'), config)
+    dump(project_path(root, 'runtime.json'), {'TEST_ONLY': 'synthetic endpoint, not a Qwen run'})
     binding = {'model_repo': 'Qwen/Qwen3.5-4B', 'model_revision': 'a'*40,
-        'official_runtime_path': 'runtime.json', 'official_runtime_sha256': sha256(root/'runtime.json'),
+        'official_runtime_path': 'runtime.json', 'official_runtime_sha256': sha256(project_path(root, 'runtime.json')),
         'request_body': {'max_tokens': 512, 'temperature': 0}, 'timeout_seconds': 5,
         'completion_budget_includes_reasoning': True}
-    dump(root/'runtime_binding.json', binding)
+    dump(project_path(root, 'runtime_binding.json'), binding)
     tokenizer_root = root/'assets/qwen_tokenizer'
     tokenizer_root.mkdir(parents=True)
     tok = Tokenizer(WordLevel({'[UNK]': 0}, unk_token='[UNK]'))
@@ -115,11 +120,11 @@ def fixture(root):
         {'block_id': 'original_3', 'page': 40, 'section': 'Другой раздел',
          'text': r'Изолированная особая точка и ряд Лорана.'},
     ]
-    write_jsonl(root/'corpus.jsonl', blocks)
-    subprocess.run([sys.executable, str(ROOT/'build_index.py'), '--corpus', str(root/'corpus.jsonl'),
-                    '--output', str(root/'index'), '--config', str(root/'config.json')],
+    write_jsonl(project_path(root, 'corpus.jsonl'), blocks)
+    subprocess.run([sys.executable, str(ROOT/'build_index.py'), '--corpus', str(project_path(root, 'corpus.jsonl')),
+                    '--output', str(root/'index'), '--config', str(project_path(root, 'config.json'))],
                    check=True, capture_output=True)
-    return load_config(root/'config.json'), blocks
+    return load_config(project_path(root, 'config.json')), blocks
 
 
 class IntegrationTests(unittest.TestCase):
@@ -139,8 +144,8 @@ class IntegrationTests(unittest.TestCase):
             self.assertTrue({c['block_id'] for c in chunks} <= {b['block_id'] for b in self.blocks})
             self.assertTrue(any(c['block_id'] == 'original_1' for c in chunks))
         before = sha256(self.root/'index/index.json.gz')
-        subprocess.run([sys.executable, str(ROOT/'build_index.py'), '--corpus', str(self.root/'corpus.jsonl'),
-                        '--output', str(self.root/'index'), '--config', str(self.root/'config.json')],
+        subprocess.run([sys.executable, str(ROOT/'build_index.py'), '--corpus', str(project_path(self.root, 'corpus.jsonl')),
+                        '--output', str(self.root/'index'), '--config', str(project_path(self.root, 'config.json'))],
                        check=True, capture_output=True)
         self.assertEqual(before, sha256(self.root/'index/index.json.gz'))
 
@@ -157,7 +162,7 @@ class IntegrationTests(unittest.TestCase):
         self.assertFalse(budget.fits(msg))
 
     def test_changed_runtime_is_rejected(self):
-        dump(self.root/'runtime.json', {'TEST_ONLY': 'changed'})
+        dump(project_path(self.root, 'runtime.json'), {'TEST_ONLY': 'changed'})
         with self.assertRaises(ValueError):
             load_binding(self.config)
 
@@ -203,7 +208,7 @@ class IntegrationTests(unittest.TestCase):
                    LLM_MODEL='synthetic-test-fixture', LLM_API_KEY='test-only', SUBMISSION_ID='test-submission')
         try:
             subprocess.run([sys.executable, str(ROOT/'predict.py'), '--index', str(self.root/'index'),
-                '--questions', str(self.root/'questions.jsonl'), '--config', str(self.root/'config.json'),
+                '--questions', str(self.root/'questions.jsonl'), '--config', str(project_path(self.root, 'config.json')),
                 '--output', str(self.root/'answers.jsonl'), '--trace', str(self.root/'trace.jsonl')],
                 cwd='/', env=env, capture_output=True, check=True)
         finally:

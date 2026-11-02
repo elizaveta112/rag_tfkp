@@ -1,3 +1,4 @@
+from common import project_path
 #!/usr/bin/env python3
 """Local Qwen3.5-4B GGUF, CPU or CUDA, exposed as Chat Completions on loopback."""
 import argparse
@@ -16,11 +17,11 @@ from decisions import MODEL_RESPONSE_SCHEMA
 
 def main():
     p = argparse.ArgumentParser()
-    p.add_argument('--config', default=str(ROOT/'config.json'))
+    p.add_argument('--config', default=str(project_path(ROOT, 'config.json')))
     p.add_argument('--port', type=int, default=8000)
     p.add_argument('--gpu-layers', type=int, default=0, help='-1: offload all layers on CUDA build')
     p.add_argument('--threads', type=int, default=min(8, os.cpu_count() or 2))
-    p.add_argument('--usage-log', default=str(ROOT/'endpoint_usage.jsonl'))
+    p.add_argument('--usage-log', default=str(project_path(ROOT, 'endpoint_usage.jsonl')))
     args = p.parse_args()
     config = load_config(args.config)
     binding = load_binding(config)
@@ -45,7 +46,7 @@ def main():
     log = Path(args.usage_log)
     log.parent.mkdir(parents=True, exist_ok=True)
     from hardware import hardware_info
-    dump(ROOT/'server_resources.json', {'load_seconds': time.perf_counter()-start,
+    dump(project_path(ROOT, 'server_resources.json'), {'load_seconds': time.perf_counter()-start,
          'llama_cpp_python': __version__, 'platform': platform.platform(),
          'processor': platform.processor(), 'threads': args.threads,
          'gpu_layers_requested': args.gpu_layers, 'weights_bytes': weights.stat().st_size,

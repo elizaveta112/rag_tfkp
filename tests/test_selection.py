@@ -1,3 +1,8 @@
+import sys as _sys
+from pathlib import Path as _Path
+for _directory in (_Path(__file__).resolve().parents[1], _Path(__file__).resolve().parents[1]/'src', _Path(__file__).resolve().parents[1]/'scripts'):
+    _sys.path.insert(0, str(_directory))
+from common import project_path
 """Reject incoherent final deliverables without loading a model or index."""
 import copy
 import csv
@@ -12,14 +17,15 @@ from validate_submission import validate_selection
 
 class SelectionTests(unittest.TestCase):
     def setUp(self):
-        if not (ROOT/'selection.json').exists():
+        if not (project_path(ROOT, 'selection.json')).exists():
             self.skipTest('No finalized measured study yet')
         self.temp = tempfile.TemporaryDirectory()
         self.addCleanup(self.temp.cleanup)
         self.root = Path(self.temp.name)
         for name in ('selection.json', 'config.json', 'measured_config.json', 'study_provenance.json',
                      'semantic_reviews.json', 'dev_answers.jsonl', 'dev_trace.jsonl'):
-            shutil.copyfile(ROOT/name, self.root/name)
+            target=project_path(self.root, name);target.parent.mkdir(parents=True,exist_ok=True)
+            shutil.copyfile(project_path(ROOT, name), target)
         self.answers=read_jsonl(self.root/'dev_answers.jsonl')
         self.traces=read_jsonl(self.root/'dev_trace.jsonl')
         with (ROOT/'experiments.csv').open() as f:
@@ -37,7 +43,7 @@ class SelectionTests(unittest.TestCase):
             self.verify(traces=changed)
 
     def test_post_measurement_retrieval_change_fails(self):
-        path=self.root/'config.json';cfg=json.loads(path.read_text());cfg['retrieval']['seed_chunks']+=1
+        path=project_path(self.root, 'config.json');cfg=json.loads(path.read_text());cfg['retrieval']['seed_chunks']+=1
         path.write_text(json.dumps(cfg))
         with self.assertRaisesRegex(ValueError, 'Inference settings changed'):
             self.verify()
@@ -48,7 +54,7 @@ class SelectionTests(unittest.TestCase):
             self.verify()
 
     def test_wrong_csv_score_fails(self):
-        rows=copy.deepcopy(self.rows);mode=json.loads((self.root/'selection.json').read_text())['selected_mode']
+        rows=copy.deepcopy(self.rows);mode=json.loads((project_path(self.root, 'selection.json')).read_text())['selected_mode']
         next(r for r in rows if r['name']==mode)['Q']='1.0'
         with self.assertRaisesRegex(ValueError, 'CSV/selection mismatch'):
             self.verify(rows=rows)

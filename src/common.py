@@ -2,7 +2,11 @@ import hashlib
 import json
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parent
+ROOT = Path(__file__).resolve().parents[1]
+import sys
+for directory in (ROOT, ROOT/'src', ROOT/'scripts'):
+    if str(directory) not in sys.path:
+        sys.path.insert(0, str(directory))
 
 
 def read_jsonl(path):
@@ -97,3 +101,28 @@ def validate_answer(a, q, allowed, allow_no_context=False):
     elif not a['answer_ids'] or (not a['citations'] and not allow_no_context):
         raise ValueError('non-abstention requires answers and citations')
     return a
+
+
+# Repository paths are centralized so CLI entry points work from any directory.
+CONFIG_FILES = ('config.json', 'measured_config.json', 'runtime.json', 'runtime_binding.json')
+DATA_FILES = ('corpus.jsonl', 'dev_gold.jsonl', 'dev_questions.jsonl', 'dev_references.jsonl', 'own_gold.jsonl', 'own_questions.jsonl')
+ARTIFACT_FILES = ('completion_manifest.json', 'corpus_audit.json', 'endpoint_usage.jsonl', 'final_metrics.json', 'request_attempts.jsonl', 'selection.json', 'semantic_reviews.json', 'server.log', 'server_resources.json', 'study_provenance.json', 'usage_reconciliation.json')
+CORE_MODULES = ('build_index', 'common', 'decisions', 'evaluate', 'formulas', 'hardware', 'json_math', 'llm', 'pdf_corpus', 'predict', 'request_journal', 'retrieval', 'run_state', 'serve_local')
+SCRIPT_MODULES = ('checkpoint_run', 'create_run_kit', 'finalize_results', 'package_review', 'package_submission', 'prepare_all', 'prepare_data', 'prepare_gold', 'prepare_questions', 'review_results', 'run_experiments', 'run_local_experiments', 'upgrade_project', 'validate_submission', 'verify_usage')
+
+
+def project_path(root, name):
+    root, name = Path(root), str(name)
+    if name in CONFIG_FILES:
+        return root/'configs'/name
+    if name in DATA_FILES:
+        return root/'data'/name
+    if name in ARTIFACT_FILES:
+        return root/'artifacts'/name
+    if name == 'requirements-core.txt':
+        return root/'requirements/core.txt'
+    if name.endswith('.py') and name[:-3] in CORE_MODULES:
+        return root/'src'/name
+    if name.endswith('.py') and name[:-3] in SCRIPT_MODULES:
+        return root/'scripts'/name
+    return root/name

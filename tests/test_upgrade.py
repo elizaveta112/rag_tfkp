@@ -1,3 +1,7 @@
+import sys as _sys
+from pathlib import Path as _Path
+for _directory in (_Path(__file__).resolve().parents[1], _Path(__file__).resolve().parents[1]/'src', _Path(__file__).resolve().parents[1]/'scripts'):
+    _sys.path.insert(0, str(_directory))
 """Preserving prior measurements and rejecting mixed or contradictory decisions."""
 import hashlib
 import io
@@ -8,7 +12,7 @@ import unittest
 import zipfile
 from contextlib import redirect_stdout
 from pathlib import Path
-sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]/'src'))
 from upgrade_project import install, RELEASE
 from decisions import to_public_answer
 

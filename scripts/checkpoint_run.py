@@ -1,3 +1,7 @@
+import sys as _sys
+from pathlib import Path as _Path
+for _directory in (_Path(__file__).resolve().parents[1], _Path(__file__).resolve().parents[1]/'src', _Path(__file__).resolve().parents[1]/'scripts'):
+    _sys.path.insert(0, str(_directory))
 """Optional private run backup; outputs are filesystem copies, never model inputs."""
 import os
 import zipfile

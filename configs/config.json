@@ -1,7 +1,7 @@
 {
-  "mode": "final",
+  "mode": "no_formula",
   "runtime_binding": "runtime_binding.json",
-  "tokenizer_dir": "assets/qwen_tokenizer",
+  "tokenizer_dir": "../assets/qwen_tokenizer",
   "retrieval": {
     "chunk_chars": 1400,
     "seed_chunks": 12,
@@ -19,5 +19,5 @@
   },
   "repair_format": true,
   "runtime_json": "runtime.json",
-  "model_path": "assets/models/Qwen3.5-4B-Q4_K_M.gguf"
+  "model_path": "../assets/models/Qwen3.5-4B-Q4_K_M.gguf"
 }

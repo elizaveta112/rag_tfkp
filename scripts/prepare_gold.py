@@ -1,3 +1,8 @@
+import sys as _sys
+from pathlib import Path as _Path
+for _directory in (_Path(__file__).resolve().parents[1], _Path(__file__).resolve().parents[1]/'src', _Path(__file__).resolve().parents[1]/'scripts'):
+    _sys.path.insert(0, str(_directory))
+from common import project_path
 #!/usr/bin/env python3
 """Evaluation annotations, isolated from corpus construction and prediction.
 
@@ -67,14 +72,14 @@ def make_gold(corpus, references, own):
 
 def main():
     p = argparse.ArgumentParser()
-    p.add_argument('--corpus', default=str(ROOT/'corpus.jsonl'))
-    p.add_argument('--references', default=str(ROOT/'dev_references.jsonl'))
-    p.add_argument('--own-draft', default=str(ROOT/'own_gold.jsonl'))
+    p.add_argument('--corpus', default=str(project_path(ROOT, 'corpus.jsonl')))
+    p.add_argument('--references', default=str(project_path(ROOT, 'dev_references.jsonl')))
+    p.add_argument('--own-draft', default=str(project_path(ROOT, 'own_gold.jsonl')))
     p.add_argument('--output-dir', default=str(ROOT))
     args = p.parse_args()
     dev, own = make_gold(read_jsonl(args.corpus), read_jsonl(args.references), read_jsonl(args.own_draft))
-    write_jsonl(Path(args.output_dir)/'dev_gold.jsonl', dev)
-    write_jsonl(Path(args.output_dir)/'own_gold.jsonl', own)
+    write_jsonl(project_path(Path(args.output_dir), 'dev_gold.jsonl'), dev)
+    write_jsonl(project_path(Path(args.output_dir), 'own_gold.jsonl'), own)
     print('Bound 15 dev and 8 author gold annotations to real extracted PDF block IDs.')
 
 

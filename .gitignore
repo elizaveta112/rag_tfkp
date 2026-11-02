@@ -26,3 +26,6 @@ private_review/
 *.zip
 .venv*/
 rag_private_checkpoints/
+
+/artifacts/endpoint_usage.jsonl
+/artifacts/request_attempts.jsonl

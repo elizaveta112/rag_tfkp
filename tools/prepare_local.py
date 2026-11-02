@@ -1,3 +1,8 @@
+import sys as _sys
+from pathlib import Path as _Path
+for _directory in (_Path(__file__).resolve().parents[1], _Path(__file__).resolve().parents[1]/'src', _Path(__file__).resolve().parents[1]/'scripts'):
+    _sys.path.insert(0, str(_directory))
+from common import project_path
 #!/usr/bin/env python3
 """Network setup only; inference never downloads assets."""
 import argparse
@@ -13,7 +18,7 @@ from common import ROOT, load_config, config_path, dump, sha256
 
 def main():
     p = argparse.ArgumentParser()
-    p.add_argument('--config', default=str(ROOT/'config.json'))
+    p.add_argument('--config', default=str(project_path(ROOT, 'config.json')))
     p.add_argument('--existing-model', help='Reuse verified download without a second copy')
     args = p.parse_args()
     config = load_config(args.config)

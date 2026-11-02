@@ -1,3 +1,8 @@
+import sys as _sys
+from pathlib import Path as _Path
+for _directory in (_Path(__file__).resolve().parents[1], _Path(__file__).resolve().parents[1]/'src', _Path(__file__).resolve().parents[1]/'scripts'):
+    _sys.path.insert(0, str(_directory))
+from common import project_path
 #!/usr/bin/env python3
 """Start local Qwen, run five experiments, then shut down the model process."""
 import argparse
@@ -15,11 +20,11 @@ def main():
     p = argparse.ArgumentParser()
     p.add_argument('--gpu-layers', type=int, default=-1)
     p.add_argument('--threads', type=int, default=min(8, os.cpu_count() or 2))
-    p.add_argument('--config', default=str(ROOT/'config.json'))
+    p.add_argument('--config', default=str(project_path(ROOT, 'config.json')))
     p.add_argument('--index', default=str(ROOT/'index'))
-    p.add_argument('--corpus', default=str(ROOT/'corpus.jsonl'))
-    p.add_argument('--questions', default=str(ROOT/'dev_questions.jsonl'))
-    p.add_argument('--gold', default=str(ROOT/'dev_gold.jsonl'))
+    p.add_argument('--corpus', default=str(project_path(ROOT, 'corpus.jsonl')))
+    p.add_argument('--questions', default=str(project_path(ROOT, 'dev_questions.jsonl')))
+    p.add_argument('--gold', default=str(project_path(ROOT, 'dev_gold.jsonl')))
     p.add_argument('--output-dir', default=str(ROOT/'experiments'))
     p.add_argument('--port', type=int, default=8000)
     p.add_argument('--resume', action='store_true', help='Continue exactly the same development run and retain its endpoint journal')
@@ -30,8 +35,8 @@ def main():
     env = dict(os.environ, LLM_BASE_URL=f'http://127.0.0.1:{args.port}/v1',
         LLM_MODEL='Qwen/Qwen3.5-4B', LLM_API_KEY='LOCAL',
         SUBMISSION_ID=os.environ.get('SUBMISSION_ID', 'smagina-tfkp-local-v4'))
-    usage_log = ROOT/'smoke/endpoint_usage.jsonl' if args.smoke_test else ROOT/'endpoint_usage.jsonl'
-    attempts = ROOT/'request_attempts.jsonl'
+    usage_log = ROOT/'smoke/endpoint_usage.jsonl' if args.smoke_test else project_path(ROOT, 'endpoint_usage.jsonl')
+    attempts = project_path(ROOT, 'request_attempts.jsonl')
     if args.smoke_test:
         env.pop('RAG_CHECKPOINT_DIR', None)
         env.pop('RAG_ATTEMPT_LOG', None)
@@ -57,8 +62,8 @@ def main():
         archive = ROOT/'experiments/archive'
         archive.mkdir(parents=True, exist_ok=True)
         usage_log.replace(archive/f'endpoint_usage_{time.time_ns()}.jsonl')
-    with (ROOT/'server.log').open('w') as log:
-        server = subprocess.Popen([sys.executable, str(ROOT/'serve_local.py'),
+    with (project_path(ROOT, 'server.log')).open('w') as log:
+        server = subprocess.Popen([sys.executable, str(project_path(ROOT, 'serve_local.py')),
             '--config', str(Path(args.config).resolve()), '--gpu-layers', str(args.gpu_layers),
             '--threads', str(args.threads), '--port', str(args.port), '--usage-log', str(usage_log)], stdout=log, stderr=log)
         try:
@@ -80,7 +85,7 @@ def main():
                 folder = ROOT/'smoke'
                 folder.mkdir(exist_ok=True)
                 write_jsonl(folder/'question.jsonl', read_jsonl(args.questions)[:1])
-                subprocess.run([sys.executable, str(ROOT/'predict.py'), '--index', str(Path(args.index).resolve()),
+                subprocess.run([sys.executable, str(project_path(ROOT, 'predict.py')), '--index', str(Path(args.index).resolve()),
                     '--questions', str(folder/'question.jsonl'), '--config', str(Path(args.config).resolve()),
                     '--output', str(folder/'answer.jsonl'), '--trace', str(folder/'trace.jsonl'), '--mode', 'final'],
                     env=env, check=True)
@@ -91,7 +96,7 @@ def main():
                 print('Smoke test passed. This separate question is not part of the five measured runs.', flush=True)
                 return
             print('Local Qwen ready; starting five real experiments (75 question/configuration pairs).', flush=True)
-            cmd = [sys.executable, str(ROOT/'run_experiments.py')]
+            cmd = [sys.executable, str(project_path(ROOT, 'run_experiments.py'))]
             for key in ('index', 'corpus', 'questions', 'gold', 'config', 'output_dir'):
                 cmd += ['--'+key.replace('_', '-'), str(Path(getattr(args, key)).resolve())]
             if args.resume:

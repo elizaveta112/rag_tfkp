@@ -1,3 +1,8 @@
+import sys as _sys
+from pathlib import Path as _Path
+for _directory in (_Path(__file__).resolve().parents[1], _Path(__file__).resolve().parents[1]/'src', _Path(__file__).resolve().parents[1]/'scripts'):
+    _sys.path.insert(0, str(_directory))
+from common import project_path
 #!/usr/bin/env python3
 """Five complete runs with identical questions and immutable generation settings."""
 import argparse
@@ -35,7 +40,7 @@ def main():
             for path in previous:
                 path.replace(archive/path.name)
     # Preserve exact bytes: prediction fingerprints bind to this configuration.
-    snapshot = ROOT/'measured_config.json'
+    snapshot = project_path(ROOT, 'measured_config.json')
     if args.resume and snapshot.exists() and snapshot.read_bytes() != Path(args.config).read_bytes():
         raise ValueError('Resume config differs from the measured snapshot')
     if Path(args.config).resolve() != snapshot.resolve():
@@ -50,7 +55,7 @@ def main():
     for number, mode in enumerate(MODES, 1):
         print(f'Experiment {number}/{len(MODES)}: {mode}', flush=True)
         answer, trace = out/f'{mode}.answers.jsonl', out/f'{mode}.trace.jsonl'
-        command = [sys.executable, str(ROOT/'predict.py'), '--index', str(Path(args.index).resolve()),
+        command = [sys.executable, str(project_path(ROOT, 'predict.py')), '--index', str(Path(args.index).resolve()),
             '--questions', str(Path(args.questions).resolve()), '--config', str(Path(args.config).resolve()),
             '--output', str(answer), '--trace', str(trace), '--mode', mode]
         if args.resume:

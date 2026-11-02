@@ -1,3 +1,4 @@
+from common import project_path
 """Explicit continuation of one interrupted development run, never default caching."""
 import json
 from pathlib import Path
@@ -12,7 +13,7 @@ def fingerprint(index, questions, config, mode):
         'config_sha256': sha256(config),
         'index_sha256': sha256(Path(index)/'index.json.gz'),
         'binding_sha256': sha256(config_path(load_config(config), 'runtime_binding')),
-        'source_sha256': {name: sha256(ROOT/name) for name in sources}}
+        'source_sha256': {name: sha256(project_path(ROOT, name)) for name in sources}}
 
 
 def start_or_resume(output, trace, questions, identity, resume=False):

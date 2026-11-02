@@ -23,36 +23,36 @@ Python 3.11, NVIDIA GPU, CUDA toolkit и C++-компилятор. Команд�
 python3.11 -m venv .venv
 source .venv/bin/activate
 CMAKE_ARGS='-DGGML_CUDA=ON -DCMAKE_CUDA_ARCHITECTURES=75' CMAKE_BUILD_PARALLEL_LEVEL=2 python -m pip install -r requirements.txt
-python prepare_all.py
+python run.py prepare_all
 python -m unittest discover -s tests -v
-python run_local_experiments.py --gpu-layers -1 --threads 2
-python verify_usage.py
-python review_results.py --refresh
+python run.py run_local_experiments --gpu-layers -1 --threads 2
+python run.py verify_usage
+python run.py review_results --refresh
 ```
 
 После расчёта проверить объяснения по `private_review/answers.md` и заполнить
-`pending` в `semantic_reviews.json`, затем:
+`pending` в `artifacts/semantic_reviews.json`, затем:
 
 ```bash
-python finalize_results.py
-python validate_submission.py
-python package_submission.py
+python run.py finalize_results
+python run.py validate_submission
+python run.py package_submission
 ```
 
 `Q_automatic` оценивает варианты и ссылки; `Q` дополнительно учитывает
 содержательную проверку. Старая разметка применяется только к ответам с тем же
 SHA256. Без полной проверки выбор режима помечается как предварительный.
 
-Готовые результаты можно проверить командой `python validate_submission.py`
+Готовые результаты можно проверить командой `python run.py validate_submission`
 без GPU и установленных ML-пакетов. 
 
 ## Данные и конфигурация
 
-- `data/tfkp_15_qa.md` — исходные QA; `dev_*` и `own_*` — вопросы, эталоны и ответы.
-- `config.json` — выбранный режим; `measured_config.json` — исходная конфигурация опытов.
-- `runtime.json` — версии модели, веса и параметры генерации; `selection.json` — результат выбора режима.
+- `data/tfkp_15_qa.md` — исходные QA; вопросы и эталоны — в `data/`, ответы и trace — в корне проекта.
+- `configs/config.json` — выбранный режим; `configs/measured_config.json` — исходная конфигурация опытов.
+- `configs/runtime.json` — версии модели, веса и параметры генерации; `artifacts/selection.json` — результат выбора режима.
 
-`prepare_all.py` скачивает закреплённый PDF, извлекает формулы, создаёт корпус,
+`scripts/prepare_all.py` скачивает закреплённый PDF, извлекает формулы, создаёт корпус,
 вопросы, эталоны и индекс. Дроби, степени, индексы и сопряжение восстанавливаются
 по расположению глифов и линий PDF. В индекс не попадают QA и эталоны.
 PDF, корпус, индекс, веса, окружение и журналы других режимов в Git не включаются.
